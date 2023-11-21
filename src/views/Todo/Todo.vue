@@ -3,7 +3,7 @@
 </script>
 <template>
     <div class="container">
-        <section class="todoapp">
+        <section class="todoapp" style="margin-right: 80px;">
             <header class="header">
                 <h1>todos</h1>
                 <input class="new-todo" placeholder="What needs to be done?" autofocus>
