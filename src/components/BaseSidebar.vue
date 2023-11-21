@@ -1,27 +1,57 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { RouterLink } from 'vue-router'
+const activeLink = ref(null)
 
+const handleRotate = (link: string) => {
+    if (activeLink.value === link) {
+        // 如果當前連結已經是活躍的，則將其設為 null 以收回子菜單
+        activeLink.value = null;
+    } else {
+        // 否則，將點擊的連結設為活躍連結
+        activeLink.value = link;
+    }
+}
 </script>
 <template>
     <div id="sidebar">
         <nav id="navbar" class="nav-menu navbar d-flex flex-column">
             <ul>
                 <li>
-                    <a href="#hero"><i class="bi bi-house-door-fill"></i><span>Home</span></a>
-                </li>
-                <li>
-                    <a>
-                        <i class="bi bi-house-door-fill"></i><span>dashboard</span>
-                        <div>
-                            <i class="bi bi-chevron-right ps-4" style="font-size: 14px;"></i>
-                        </div>
+                    <a @click="handleRotate('Home')">
+                        <i class="bi bi-house-door-fill"></i><span>Home</span>
+                        <i class="bi bi-chevron-right" style="font-size: 14px;"
+                            :class="{ iconActive: activeLink == 'Home' }"></i>
                     </a>
-                    <ul v-if="true">
-                        <li>a</li>
-                        <li>b</li>
+                    <ul :class="{ ulActive: activeLink == 'Home' }">
+                        <li class="d-flex justify-content-center">
+                            <RouterLink to="/layout/dashboard" style="background-color: rgb(232, 234, 239);">Home</RouterLink>
+                        </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#hero"><i class="bi bi-house-door-fill"></i><span>Home</span></a>
+                    <a @click="handleRotate('Dashboard')">
+                        <i class="bi bi-house-door-fill"></i><span>Dashboard</span>
+                        <i class="bi bi-chevron-right" style="font-size: 14px;"
+                            :class="{ iconActive: activeLink == 'Dashboard' }"></i>
+                    </a>
+                    <ul :class="{ ulActive: activeLink == 'Dashboard' }">
+                        <li class="d-flex justify-content-center">
+                            <RouterLink to="/layout/dashboard" style="background-color: rgb(232, 234, 239);">Dashboard</RouterLink>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a @click="handleRotate('Todo')">
+                        <i class="bi bi-house-door-fill"></i><span>Todo</span>
+                        <i class="bi bi-chevron-right" style="font-size: 14px;"
+                            :class="{ iconActive: activeLink == 'Todo' }"></i>
+                    </a>
+                    <ul :class="{ ulActive: activeLink == 'Todo' }">
+                        <li class="d-flex justify-content-center">
+                            <RouterLink to="/layout/todo" style="background-color: rgb(232, 234, 239);">Todo</RouterLink>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>
@@ -59,15 +89,42 @@
 
         a {
             display: flex;
+            position: relative;
             align-items: center;
             color: black;
             padding: 0 0 0 10px;
             // margin-bottom: 8px;
-            transition: 0.3s;
+            transition: 0.5s;
             font-size: 12px;
             text-decoration: none;
+
+            .bi-chevron-right {
+                position: absolute;
+                right: 24px;
+            }
+
+            // icon 旋轉
+            .iconActive {
+                transition: 0.5s ease-in-out;
+                margin-top: 15px;
+                margin-right: 8px;
+                transform: rotate(90deg);
+            }
         }
 
+        ul {
+            display: none;
+
+            li {
+                font-size: 12px a {
+                    background-color: rgb(232, 234, 239);
+                }
+            }
+        }
+
+        .ulActive {
+            display: block;
+        }
     }
 }
 
@@ -112,24 +169,7 @@
     color: #149ddd;
 }
 
-//
-// .sidebar-dropdown {
-//     li {
-//         padding-left: 50px;
-        
-//         a {
-//             background-color: rgb(232, 234, 239);
-//         }
-//     }
 
-// }
-
-// 修改bootstrap的css
-// .dropdown-menu {
-//     margin-top: -10px !important;
-//     background: rgb(232, 234, 239);
-//     border: 0;
-// }
 
 @media (max-width: 992px) {
     #sidebar {
