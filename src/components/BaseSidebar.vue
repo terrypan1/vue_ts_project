@@ -64,9 +64,8 @@ const handleRotate = (link: string) => {
     left: 0;
     bottom: 0;
     width: 220px;
-    // transition: all ease-in-out 0.5s;
+    transition: all 0.5s ease-in-out;
     // z-index: 1;
-    // transition: all 0.5s;
     // padding: 0 15px;
     background: rgb(232, 234, 239);
     // overflow-y: auto;
