@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-const activeLink = ref(null)
+const activeLink = ref<string | null>(null)
 
 const handleRotate = (link: string) => {
     if (activeLink.value === link) {
@@ -25,7 +25,8 @@ const handleRotate = (link: string) => {
                     </a>
                     <ul :class="{ ulActive: activeLink == 'Home' }">
                         <li class="d-flex justify-content-center">
-                            <RouterLink to="/layout/dashboard" style="background-color: rgb(232, 234, 239);">Home</RouterLink>
+                            <RouterLink to="/layout/dashboard" style="background-color: rgb(232, 234, 239);">Home
+                            </RouterLink>
                         </li>
                     </ul>
                 </li>
@@ -37,7 +38,8 @@ const handleRotate = (link: string) => {
                     </a>
                     <ul :class="{ ulActive: activeLink == 'Dashboard' }">
                         <li class="d-flex justify-content-center">
-                            <RouterLink to="/layout/dashboard" style="background-color: rgb(232, 234, 239);">Dashboard</RouterLink>
+                            <RouterLink to="/layout/dashboard" style="background-color: rgb(232, 234, 239);">Dashboard
+                            </RouterLink>
                         </li>
                     </ul>
                 </li>
