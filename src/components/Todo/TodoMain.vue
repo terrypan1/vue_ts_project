@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
 import useStore from "../../stores/dotoIndex";
-import { ITodoItem } from '../../types/data'
+import type { ITodoItem } from '../../types/data'; // 使用 type 關鍵字導入
 const { main } = useStore()
 const { getTodos, delTodo, updateTodo, updateAllStatus } = main
 const { list, mainRadioStatus } = storeToRefs(main)
