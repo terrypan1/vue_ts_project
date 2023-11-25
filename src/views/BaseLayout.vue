@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import BaseSidebar from '../components/BaseSidebar.vue';
+import BaseSidebar2 from '../components/BaseSidebar2.vue';
 </script>
 
 <template>
-  <BaseSidebar></BaseSidebar>
+  <!-- <BaseSidebar></BaseSidebar> -->
+  <BaseSidebar2></BaseSidebar2>
   <div class="content">
     <RouterView />
   </div>

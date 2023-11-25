@@ -6,9 +6,9 @@ import Footer from '../../components/Todo/TodoFooter.vue'
 <template>
     <div class="container">
         <section class="todoapp">
-            <Header></Header>
+            <!-- <Header></Header>
             <Main></Main>
-            <Footer></Footer>
+            <Footer></Footer> -->
         </section>
         <footer class="info">
             <p>Double-click to edit a todo</p>

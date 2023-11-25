@@ -24,9 +24,9 @@ const handleRotate = (link: string) => {
                             :class="{ iconActive: activeLink == 'Home' }"></i>
                     </a>
                     <ul :class="{ ulActive: activeLink == 'Home' }">
-                        <li class="d-flex justify-content-center">
-                            <RouterLink to="/layout/dashboard" style="background-color: rgb(232, 234, 239);">Home
-                            </RouterLink>
+                        <li class="d-flex justify-content-center flex-column ">
+                            <RouterLink to="/layout/dashboard" style="background-color: rgb(232, 234, 239);">Home</RouterLink>
+                            <RouterLink to="/layout/dashboard" style="background-color: rgb(232, 234, 239);">Home</RouterLink>
                         </li>
                     </ul>
                 </li>
@@ -37,8 +37,12 @@ const handleRotate = (link: string) => {
                             :class="{ iconActive: activeLink == 'Dashboard' }"></i>
                     </a>
                     <ul :class="{ ulActive: activeLink == 'Dashboard' }">
-                        <li class="d-flex justify-content-center">
+                        <li class="">
+
                             <RouterLink to="/layout/dashboard" style="background-color: rgb(232, 234, 239);">Dashboard
+                            </RouterLink>
+
+                            <RouterLink to="/layout/dashboard" style="background-color: rgb(232, 234, 239);">Dash
                             </RouterLink>
                         </li>
                     </ul>
@@ -73,10 +77,9 @@ const handleRotate = (link: string) => {
     // overflow-y: auto;
 }
 
-.nav-menu * {
+.nav-menu  {
     margin: 0;
     padding: 0;
-    list-style: none;
 }
 
 .nav-menu ul {
@@ -130,7 +133,7 @@ const handleRotate = (link: string) => {
 }
 
 .nav-menu a:hover {
-    background-color: white;
+    background-color: red;
     border-radius: 10px;
 }
 

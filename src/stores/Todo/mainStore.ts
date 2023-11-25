@@ -35,8 +35,36 @@ const mainStore = defineStore('main', {
             await request.patch(`/${id}`, {
                 [key]: value
             })
-            console.log('123')
             this.getTodos()
+        },
+        /**
+         * 添加數據
+         * @param name 
+         */
+        async addTodo(name: string) {
+            await request.post('/', {
+                name,
+                done: false
+            })
+            this.getTodos()
+        },
+        /**
+         * 更新狀態
+         * @param done boolean 
+         */
+        async updateAllStatus(done: boolean) {
+            const arrPromise = this.list.map((item) => {
+                //每次呼叫 this.updateTodo 都會返回一個 Promise
+                return this.updateTodo(item.id, 'done', done)
+            })
+            console.log(arrPromise);
+            await Promise.all(arrPromise)
+            this.getTodos()
+        }
+    },
+    getters: {
+        mainRadioStatus(): boolean {
+            return this.list.every((item) => item.done)
         }
     }
 })

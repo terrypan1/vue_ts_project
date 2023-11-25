@@ -3,17 +3,23 @@ import { storeToRefs } from "pinia";
 import useStore from "../../stores/dotoIndex";
 import { ITodoItem } from '../../types/data'
 const { main } = useStore()
-const { getTodos, delTodo, updateTodo } = main
-const { list } = storeToRefs(main)
+const { getTodos, delTodo, updateTodo, updateAllStatus } = main
+const { list, mainRadioStatus } = storeToRefs(main)
 getTodos()
 const handleChangeInput = (item: ITodoItem) => {
-    console.log(item)
+    // console.log(item)
     updateTodo(item.id, 'done', !item.done)
 }
+const handleChangeAll = (done: boolean) =>{
+    updateAllStatus(done)
+    console.log('執行')
+}
+
 </script>
 <template>
     <section class="main">
-        <input id="toggle-all" class="toggle-all" type="checkbox">
+        <input id="toggle-all" class="toggle-all" type="checkbox" :checked=mainRadioStatus
+            @change="handleChangeAll(!mainRadioStatus)">
         <label for="toggle-all">Mark all as complete</label>
         <ul class="todo-list">
             <!-- These are here just to show the structure of the list items -->

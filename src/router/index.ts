@@ -19,6 +19,11 @@ const router = createRouter({
           path: 'todo',
           name: 'todo',
           component: () => import('../views/Todo/Todo.vue'),
+        },
+        {
+          path: 'canvasDemo',
+          name: 'canvasDemo',
+          component: () => import('../views/CanvasDemo/CanvasDemo.vue'),
         }
       ],
     },
