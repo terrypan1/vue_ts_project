@@ -69,9 +69,14 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 - error
 
 ### axios
-- npm install axios -S
+```sh
+npm install axios -S
+```
 
 ### todo
 - https://github.com/tastejs/todomvc-app-template
 
-
+### json-server 
+```sh
+json-server --watch db.json
+```

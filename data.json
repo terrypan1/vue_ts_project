@@ -11,9 +11,14 @@
       "done": false
     },
     {
-      "id": 2,
-      "name": "寫代碼",
-      "done": false
+      "name": "打代碼",
+      "done": false,
+      "id": 2
+    },
+    {
+      "name": "玩遊戲",
+      "done": false,
+      "id": 3
     }
   ]
 }

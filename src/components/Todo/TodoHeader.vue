@@ -3,10 +3,11 @@ import { ref } from 'vue';
 import useStore from '../../stores/dotoIndex'
 const { main } = useStore()
 const { addTodo } = main
-const name = ref('')
+const nameInput = ref('')
 const handleKeyup = (name: string) => {
     if (name.trim() == '') return alert('不能為空')
     addTodo(name)
+    nameInput.value = ''
 }
 
 </script>
@@ -14,7 +15,7 @@ const handleKeyup = (name: string) => {
 <template>
     <header class="header">
         <h1>todos</h1>
-        <input class="new-todo" placeholder="What needs to be done?" autofocus v-model="name" @keyup.enter="handleKeyup(name)">
+        <input class="new-todo" placeholder="What needs to be done?" autofocus v-model="nameInput" @keyup.enter="handleKeyup(nameInput)">
     </header>
 </template>
 <style lang="scss" scoped>
