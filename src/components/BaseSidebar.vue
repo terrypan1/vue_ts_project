@@ -1,66 +1,98 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
-const activeLink = ref<string | null>(null)
-
-const handleRotate = (link: string) => {
-    if (activeLink.value === link) {
-        // 如果當前連結已經是活躍的，則將其設為 null 以收回子菜單
-        activeLink.value = null;
-    } else {
-        // 否則，將點擊的連結設為活躍連結
-        activeLink.value = link;
-    }
-}
-</script>
 <template>
     <div id="sidebar">
-        <nav id="navbar" class="nav-menu navbar d-flex flex-column">
-            <ul>
-                <li>
-                    <a @click="handleRotate('Home')">
-                        <i class="bi bi-house-door-fill"></i><span>Home</span>
-                        <i class="bi bi-chevron-right" style="font-size: 14px;"
-                            :class="{ iconActive: activeLink == 'Home' }"></i>
-                    </a>
-                    <ul :class="{ ulActive: activeLink == 'Home' }">
-                        <li class="d-flex justify-content-center flex-column ">
-                            <RouterLink to="/layout/dashboard" style="background-color: rgb(232, 234, 239);">Home</RouterLink>
-                            <RouterLink to="/layout/dashboard" style="background-color: rgb(232, 234, 239);">Home</RouterLink>
-                        </li>
-                    </ul>
+        <div class="flex-shrink-0 p-3" style="width: 220px;">
+            <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+                <svg class="bi pe-none me-2" width="30" height="24">
+                    <use xlink:href="#bootstrap" />
+                </svg>
+                <span class="fs-5 fw-semibold text-white" >Portfolio</span>
+            </a>
+            <ul class="list-unstyled ps-0">
+                <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                        Home
+                    </button>
+                    <div class="collapse" id="home-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li>
+                                <RouterLink to="/layout/todo"
+                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                                    home
+                                </RouterLink>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
-                <li>
-                    <a @click="handleRotate('Dashboard')">
-                        <i class="bi bi-house-door-fill"></i><span>Dashboard</span>
-                        <i class="bi bi-chevron-right" style="font-size: 14px;"
-                            :class="{ iconActive: activeLink == 'Dashboard' }"></i>
-                    </a>
-                    <ul :class="{ ulActive: activeLink == 'Dashboard' }">
-                        <li class="">
-
-                            <RouterLink to="/layout/dashboard" style="background-color: rgb(232, 234, 239);">Dashboard
-                            </RouterLink>
-
-                            <RouterLink to="/layout/dashboard" style="background-color: rgb(232, 234, 239);">Dash
-                            </RouterLink>
-                        </li>
-                    </ul>
+                <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                        Dashboard
+                    </button>
+                    <div class="collapse" id="dashboard-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="#"
+                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
+                            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Weekly</a>
+                            </li>
+                            <li><a href="#"
+                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">Monthly</a></li>
+                            <li><a href="#"
+                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">Annually</a></li>
+                        </ul>
+                    </div>
                 </li>
-                <li>
-                    <a @click="handleRotate('Todo')">
-                        <i class="bi bi-house-door-fill"></i><span>Todo</span>
-                        <i class="bi bi-chevron-right" style="font-size: 14px;"
-                            :class="{ iconActive: activeLink == 'Todo' }"></i>
-                    </a>
-                    <ul :class="{ ulActive: activeLink == 'Todo' }">
-                        <li class="d-flex justify-content-center">
-                            <RouterLink to="/layout/todo" style="background-color: rgb(232, 234, 239);">Todo</RouterLink>
-                        </li>
-                    </ul>
+                <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse" data-bs-target="#todos-collapse" aria-expanded="false">
+                        todos
+                    </button>
+                    <div class="collapse" id="todos-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li>
+                                <RouterLink to="/layout/todo"
+                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                                    todos
+                                </RouterLink>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse" data-bs-target="#canvas-collapse" aria-expanded="false">
+                        canvas
+                    </button>
+                    <div class="collapse" id="canvas-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li>
+                                <RouterLink to="/layout/canvasDemo"
+                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                                    簡易手寫板
+                                </RouterLink>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse" data-bs-target="#Forms-collapse" aria-expanded="false">
+                        Forms
+                    </button>
+                    <div class="collapse" id="Forms-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li>
+                                <RouterLink to="/layout/flastPickerDemo"
+                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                                    FlatPickr
+                                </RouterLink>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="border-top my-3"></li>
             </ul>
-        </nav>
+        </div>
     </div>
 </template>
 <style lang="scss">
@@ -73,111 +105,73 @@ const handleRotate = (link: string) => {
     transition: all 0.5s ease-in-out;
     // z-index: 1;
     // padding: 0 15px;
-    background: rgb(232, 234, 239);
-    // overflow-y: auto;
-}
+    background: rgb(31, 41, 55);
 
-.nav-menu  {
-    margin: 0;
-    padding: 0;
-}
-
-.nav-menu ul {
-    margin-top: 10px;
-
-    li {
-        width: 190px;
-        // border: 1px white solid;
-        background: rgb(232, 234, 239);
-        margin-top: 10px;
-
-        a {
-            display: flex;
-            position: relative;
-            align-items: center;
-            color: black;
-            padding: 0 0 0 10px;
-            // margin-bottom: 8px;
-            transition: 0.5s;
-            font-size: 12px;
-            text-decoration: none;
-
-            .bi-chevron-right {
-                position: absolute;
-                right: 24px;
-            }
-
-            // icon 旋轉
-            .iconActive {
-                transition: 0.5s ease-in-out;
-                margin-top: 15px;
-                margin-right: 8px;
-                transform: rotate(90deg);
-            }
-        }
-
-        ul {
-            display: none;
-
-            li {
-                font-size: 12px a {
-                    background-color: rgb(232, 234, 239);
-                }
-            }
-        }
-
-        .ulActive {
-            display: block;
+    ul {
+        button {
+            color: rgb(158, 173, 191);
         }
     }
 }
 
-.nav-menu a:hover {
-    background-color: red;
-    border-radius: 10px;
+.btn-toggle-nav a {
+    color: rgb(158, 173, 191) !important;
 }
 
-.nav-menu a:focus {
-    background-color: white;
-    border-radius: 10px;
-    // display: flex;
-    // align-items: center;
-    // color: black;
-    // // padding: 12px 15px;
-    // // margin-bottom: 8px;
-    // transition: 0.3s;
-    // font-size: 12px;
-    // text-decoration: none;
+.dropdown-toggle {
+    outline: 0;
 }
 
-.nav-menu a i,
-.nav-menu a:focus i {
-    font-size: 20px;
-    padding-right: 14px;
-    border-radius: 10px;
-    // color: #6f7180;
+.btn-toggle {
+    padding: .25rem .5rem;
+    font-weight: 600;
+    color: var(--bs-emphasis-color);
+    background-color: transparent;
 }
 
-.nav-menu a:hover,
-.nav-menu .active,
-.nav-menu .active:focus,
-.nav-menu li:hover>a {
-    text-decoration: none;
-    color: blue;
+.btn-toggle:hover,
+.btn-toggle:focus {
+    color: rgba(var(--bs-emphasis-color-rgb), .85);
+    background-color: var(--bs-tertiary-bg);
 }
 
-.nav-menu a:hover i,
-.nav-menu .active i,
-.nav-menu .active:focus i,
-.nav-menu li:hover>a i {
-    color: #149ddd;
+.btn-toggle::before {
+    width: 1.25em;
+    line-height: 0;
+    content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+    transition: transform .35s ease;
+    transform-origin: .5em 50%;
 }
 
+[data-bs-theme="dark"] .btn-toggle::before {
+    content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%28255,255,255,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+}
 
+.btn-toggle[aria-expanded="true"] {
+    color: rgba(var(--bs-emphasis-color-rgb), .85);
+}
+
+.btn-toggle[aria-expanded="true"]::before {
+    transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+    padding: .1875rem .5rem;
+    margin-top: .125rem;
+    margin-left: 1.25rem;
+}
+
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+    background-color: var(--bs-tertiary-bg);
+}
+
+.scrollarea {
+    overflow-y: auto;
+}
 
 @media (max-width: 992px) {
     #sidebar {
         left: -300px;
     }
-}
-</style>
+}</style>

@@ -80,3 +80,7 @@ npm install axios -S
 ```sh
 json-server --watch db.json
 ```
+### Flatpickr
+```
+npm install vue-flatpickr-component@^11
+```
