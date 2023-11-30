@@ -4,7 +4,8 @@ import useStore from '../../stores/dotoIndex';
 import type { ITodoItem } from '../../types/data'; // 使用 type 關鍵字導入
 const { main } = useStore()
 const { getTodos, delTodo, updateTodo, updateAllStatus } = main
-const inputRef = ref<HTMLInputElement>() //選中元素 再到console 去打$0.__proto__ 
+const inputRef = ref<HTMLInputElement | null>(null); // 添加這一行
+// const inputRef = ref<HTMLInputElement>() //選中元素 再到console 去打$0.__proto__ 
 defineProps<{
     item: ITodoItem
 }>()
@@ -17,7 +18,13 @@ const handleChangeInput = (item: ITodoItem) => {
  */
 const handledbClick = () => {
     isEditing.value = true
-    nextTick(() => inputRef.value.focus()) //使用nextTick 元素更新後再聚焦
+    nextTick(() => {
+        // 檢查 inputRef.value 是否存在且是 HTMLInputElement 的實例
+        if (inputRef.value instanceof HTMLInputElement) {
+            inputRef.value.focus()//使用nextTick 元素更新後再聚焦
+        }
+    })
+    // nextTick(() => inputRef.value.focus()) //使用nextTick 元素更新後再聚焦
     // inputRef.value.focus() //要聲明後才能使用focus
 }
 const handleBlur = () => {
