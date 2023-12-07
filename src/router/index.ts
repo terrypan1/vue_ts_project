@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-
+//RouteRecordRaw 內置的類型接口
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
@@ -28,6 +28,16 @@ const router = createRouter({
           path: 'flastPickerDemo',
           name: 'flastPickerDemo',
           component: () => import('../views/Forms/FlatPickr.vue'),
+        },
+        {
+          path: 'scrumboard',
+          name: 'scrumboard',
+          component: () => import('../views/Draggable/Scrumboard.vue'),
+        },
+        {
+          path: 'login',
+          name: 'login',
+          component: () => import('../views/System/Login.vue'),
         }
       ],
     },

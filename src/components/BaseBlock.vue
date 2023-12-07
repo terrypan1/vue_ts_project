@@ -16,7 +16,7 @@ const prop = defineProps({
         <div class="row mt-5">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <div class="card fw-bold text-center">
+                <div class="card fw-bold text-center" >
                     <div class="card-header">
                         {{ prop.title }}
                     </div>

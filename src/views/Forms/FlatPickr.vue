@@ -43,7 +43,24 @@ const flatPickrState = reactive({
     configInlineTime: { inline: true, enableTime: true },
 });
 
+const greet = (person: string, date: Date) => {
+    console.log(person, date.toISOString().split('T')[0]);
+}
+greet('小名', new Date('2023-11-12'))
+let str: string = 'hello word'
+let num: number = 100
+let bool: boolean = true
 
+let arr: number[] = [1, 2, 3]
+let arr2: Array<number> = [1, 2, 3]
+
+
+let obj: any = {
+    x: 0
+}
+obj.bar = 200
+obj.str = 'hello word'
+console.log(obj)
 </script>
 
 <template>

@@ -84,3 +84,8 @@ json-server --watch db.json
 ```
 npm install vue-flatpickr-component@^11
 ```
+
+### draggable
+```
+npm i -S vuedraggable@next
+```

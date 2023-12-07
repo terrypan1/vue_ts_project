@@ -1,96 +1,85 @@
+<script setup lang="ts">
+import { reactive, ref } from 'vue';
+
+const menuLable = ref([
+    {
+        lable: 'Home',
+        target: '#menu1',
+        target2: 'menu1',
+        sub: [
+            { title: 'todo', path: '/layout/todo' },
+        ]
+    },
+    {
+        lable: 'Todos',
+        target: '#menu2',
+        target2: 'menu2',
+        sub: [
+            { title: 'todos', path: '/layout/todo' },
+        ]
+    },
+    {
+        lable: 'Canvas',
+        target: '#menu3',
+        target2: 'menu3',
+        sub: [
+            { title: 'cnavas', path: '/layout/canvasDemo' },
+        ]
+    },
+    {
+        lable: 'Forms',
+        target: '#menu4',
+        target2: 'menu4',
+        sub: [
+            { title: 'flastPicker', path: '/layout/flastPickerDemo' },
+        ]
+    },
+    {
+        lable: 'Draggable',
+        target: '#menu5',
+        target2: 'menu5',
+        sub: [
+            { title: 'Scrumboard', path: '/layout/scrumboard' },
+        ]
+    },
+    {
+        lable: 'System',
+        target: '#menu6',
+        target2: 'menu6',
+        sub: [
+            { title: 'Login', path: '/layout/login' },
+        ]
+    },
+])
+</script>
 <template>
     <div id="sidebar">
-        <div class="flex-shrink-0 p-3" style="width: 220px;">
-            <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-                <svg class="bi pe-none me-2" width="30" height="24">
+        <div class="d-flex flex-column mt-3">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 text-white text-decoration-none"
+                style="border-bottom: 1px solid white;">
+                <svg class="bi pe-none me-2" width="40" height="32">
                     <use xlink:href="#bootstrap" />
                 </svg>
-                <span class="fs-5 fw-semibold text-white" >Portfolio</span>
+                <span class="fs-4">Sidebar</span>
             </a>
-            <ul class="list-unstyled ps-0">
-                <li class="mb-1">
+            <hr>
+            <ul class="list-unstyled ps-0 flex-column m-1">
+                <li class="mb-1" v-for="(list, item) in menuLable" :key="item">
                     <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                        Home
+                        data-bs-toggle="collapse" :data-bs-target=list.target aria-expanded="false">
+                        {{ list.lable }}
                     </button>
-                    <div class="collapse" id="home-collapse">
+                    <div class="collapse" :id=list.target2>
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li>
-                                <RouterLink to="/layout/todo"
+                            <li v-for="(subList, subItem) in list.sub" :key="subItem">
+                                <RouterLink :to=subList.path
                                     class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                                    home
+                                    {{ subList.title }}
                                 </RouterLink>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <li class="mb-1">
-                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-                        Dashboard
-                    </button>
-                    <div class="collapse" id="dashboard-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="#"
-                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-                            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Weekly</a>
-                            </li>
-                            <li><a href="#"
-                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">Monthly</a></li>
-                            <li><a href="#"
-                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">Annually</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="mb-1">
-                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#todos-collapse" aria-expanded="false">
-                        todos
-                    </button>
-                    <div class="collapse" id="todos-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li>
-                                <RouterLink to="/layout/todo"
-                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                                    todos
-                                </RouterLink>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="mb-1">
-                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#canvas-collapse" aria-expanded="false">
-                        canvas
-                    </button>
-                    <div class="collapse" id="canvas-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li>
-                                <RouterLink to="/layout/canvasDemo"
-                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                                    簡易手寫板
-                                </RouterLink>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="mb-1">
-                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" data-bs-target="#Forms-collapse" aria-expanded="false">
-                        Forms
-                    </button>
-                    <div class="collapse" id="Forms-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li>
-                                <RouterLink to="/layout/flastPickerDemo"
-                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">
-                                    FlatPickr
-                                </RouterLink>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="border-top my-3"></li>
             </ul>
         </div>
     </div>
@@ -114,31 +103,36 @@
     }
 }
 
-.btn-toggle-nav a {
-    color: rgb(158, 173, 191) !important;
-}
 
 .dropdown-toggle {
     outline: 0;
 }
 
 .btn-toggle {
-    padding: .25rem .5rem;
-    font-weight: 600;
-    color: var(--bs-emphasis-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* 設置寬度為100% */
     background-color: transparent;
+    /* 移除背景顏色 */
+    border: none;
+
+    text-align: left;
 }
 
-.btn-toggle:hover,
-.btn-toggle:focus {
-    color: rgba(var(--bs-emphasis-color-rgb), .85);
-    background-color: var(--bs-tertiary-bg);
-}
+// .btn-toggle:hover,
+// .btn-toggle:focus {
+//     // color: rgba(var(--bs-emphasis-color-rgb), .85);
+//     // background-color: var(--bs-tertiary-bg);
+//     background-color: blue;
+// }
 
 .btn-toggle::before {
+    order: 2;
     width: 1.25em;
     line-height: 0;
-    content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+    content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
     transition: transform .35s ease;
     transform-origin: .5em 50%;
 }
@@ -148,7 +142,8 @@
 }
 
 .btn-toggle[aria-expanded="true"] {
-    color: rgba(var(--bs-emphasis-color-rgb), .85);
+    // color: rgba(var(--bs-emphasis-color-rgb), .85);
+    color: white;
 }
 
 .btn-toggle[aria-expanded="true"]::before {
@@ -159,11 +154,13 @@
     padding: .1875rem .5rem;
     margin-top: .125rem;
     margin-left: 1.25rem;
+    color: rgb(158, 173, 191) !important;
 }
 
 .btn-toggle-nav a:hover,
 .btn-toggle-nav a:focus {
-    background-color: var(--bs-tertiary-bg);
+    // background-color: var(--bs-tertiary-bg);
+    background-color: blue;
 }
 
 .scrollarea {
@@ -174,4 +171,5 @@
     #sidebar {
         left: -300px;
     }
-}</style>
+}
+</style>

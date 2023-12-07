@@ -2,6 +2,28 @@
 import Header from '../../components/Todo/TodoHeader.vue'
 import Main from '../../components/Todo/TodoMain.vue'
 import Footer from '../../components/Todo/TodoFooter.vue'
+import {ref} from 'vue'
+
+interface Person {
+    name:string,
+    age?:number,
+    gender:string
+}
+
+// let tom:Person = {
+//     name:'Tom',
+//     age:25,
+//     gender:'male'
+// }
+// let tom = ref<Person>({
+//     name:'',
+//     age:0,
+//     gender:''
+// })
+
+// let list= ref<any[]>([])
+// list.value = ['123','321']
+
 </script>
 <template>
     <div class="container">
