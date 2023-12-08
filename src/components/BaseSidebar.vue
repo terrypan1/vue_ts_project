@@ -1,7 +1,17 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
 
-const menuLable = ref([
+interface INavMenu {
+    lable: string,
+    target: string,
+    target2: string,
+    sub: {
+        title: string,
+        path: string
+    }[]
+}
+
+const menuLable = ref<INavMenu[]>([
     {
         lable: 'Home',
         target: '#menu1',
