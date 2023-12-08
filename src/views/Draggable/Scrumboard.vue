@@ -1,59 +1,60 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import draggable from 'vuedraggable';
+// import draggable from 'vuedraggable';
 
-// 初始化列表
-const items = ref([
-    { text: '項目 1' },
-    { text: '項目 2' },
-    { text: '項目 3' },
-]);
+// // 初始化列表
+// const items = ref([
+//     { text: '項目 1' },
+//     { text: '項目 2' },
+//     { text: '項目 3' },
+// ]);
 
-// TypeScript 介面定義（可選）
-interface Item {
-    text: string;
-}
+// // TypeScript 介面定義（可選）
+// interface Item {
+//     text: string;
+// }
 
-watch(items, (newValue) => {
-    console.log(newValue)
-})
+// watch(items, (newValue) => {
+//     console.log(newValue)
+// })
 
 
-const project_list = ref([]);
+// const project_list = ref([]);
 
-project_list.value = [
-    {
-        id: 1,
-        title: "In Progress",
-        tasks: [
-            { task_id: 1, title: "Creating a new Portfolio on Dribble", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.", image: true, date: " 08 Aug, 2020" },
-            { task_id: 2, title: "Singapore Team Meet", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.", date: " 09 Aug, 2020" },
-        ],
-    },
-    {
-        id: 2,
-        title: "Complete",
-        tasks: [
-            { task_id: 1, title: "Dinner with Kelly Young", description: "", date: " 08 Aug, 2020" },
-            {
-                task_id: 2,
-                title: "Launch New SEO Wordpress Theme ",
-                description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                date: " 09 Aug, 2020",
-            },
-        ],
-    },
-    {
-        id: 3,
-        title: "New",
-        tasks: [],
-    },
-];
+// project_list.value = [
+//     {
+//         id: 1,
+//         title: "In Progress",
+//         tasks: [
+//             { task_id: 1, title: "Creating a new Portfolio on Dribble", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.", image: true, date: " 08 Aug, 2020" },
+//             { task_id: 2, title: "Singapore Team Meet", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.", date: " 09 Aug, 2020" },
+//         ],
+//     },
+//     {
+//         id: 2,
+//         title: "Complete",
+//         tasks: [
+//             { task_id: 1, title: "Dinner with Kelly Young", description: "", date: " 08 Aug, 2020" },
+//             {
+//                 task_id: 2,
+//                 title: "Launch New SEO Wordpress Theme ",
+//                 description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+//                 date: " 09 Aug, 2020",
+//             },
+//         ],
+//     },
+//     {
+//         id: 3,
+//         title: "New",
+//         tasks: [],
+//     },
+// ];
 
 
 </script>
 <template>
-    <div class="draggable-container">
+    <div>draggable</div>
+    <!-- <div class="draggable-container">
         <draggable v-model="items" class="drag-area" :item-key="'text'">
             <template #item="{ element }">
                 <div class="drag-item">{{ element.text }}</div>
@@ -91,7 +92,7 @@ project_list.value = [
                 </div>
             </template>
         </draggable>
-    </div>
+    </div> -->
 </template>
 <style>
 .draggable-container {
