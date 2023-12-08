@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, reactive, defineAsyncComponent } from 'vue';
 import flatPickr from 'vue-flatpickr-component';
-import 'flatpickr/dist/flatpickr.css';
 import BaseBlock from "../../components/BaseBlock.vue";
 // import AsyncComponent from '../../components/defineAsyncComponent/buttonDemo.vue'
 const isLoaded = ref(false)
@@ -94,6 +93,7 @@ console.log(obj)
 </template>
   
 <style lang="scss">
+@import "../../assets/css/flatpickr.css";
 @import "../../assets/scss/flatPickr/bootstrap.scss";
 
 .form-control {
