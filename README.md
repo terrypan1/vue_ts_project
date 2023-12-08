@@ -70,7 +70,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 ### axios
 ```sh
-npm install axios -S
+pnpm install axios -S
 ```
 
 ### todo
@@ -82,10 +82,22 @@ json-server --watch db.json
 ```
 ### Flatpickr
 ```
-npm install vue-flatpickr-component@^11
+pnpm install vue-flatpickr-component@^11
 ```
 
 ### draggable
 ```
-npm i -S vuedraggable@next
+pnpm i -S vuedraggable@next
+```
+
+### Vuelidate
+- Vuelidate, for more info and examples you can check out https://github.com/vuelidate/vuelidate
+
+```
+pnpm install @vuelidate/core @vuelidate/validators
+```
+### SweetAlert2 
+- // Sweetalert2, for more info and examples, you can check out https://github.com/sweetalert2/sweetalert2
+```
+pnpm install sweetalert2
 ```
