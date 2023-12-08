@@ -1,23 +1,14 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
-
-interface INavMenu {
-    lable: string,
-    target: string,
-    target2: string,
-    sub: {
-        title: string,
-        path: string
-    }[]
-}
+import type { INavMenu } from '../../src/types/data';
 
 const menuLable = ref<INavMenu[]>([
     {
-        lable: 'Home',
+        lable: 'Dashboard',
         target: '#menu1',
         target2: 'menu1',
         sub: [
-            { title: 'todo', path: '/layout/todo' },
+            { title: 'dashboard', path: '/layout/dashboard' },
         ]
     },
     {
@@ -61,6 +52,11 @@ const menuLable = ref<INavMenu[]>([
         ]
     },
 ])
+const activeLink = ref(null)
+const handleClick = (link:string) => {
+    activeLink.value = link
+    console.log(link,activeLink.value)
+}
 </script>
 <template>
     <div id="sidebar">
@@ -82,8 +78,9 @@ const menuLable = ref<INavMenu[]>([
                     <div class="collapse" :id=list.target2>
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li v-for="(subList, subItem) in list.sub" :key="subItem">
-                                <RouterLink :to=subList.path
-                                    class="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                                <RouterLink :to=subList.path style="color: rgb(158, 173, 191);"
+                                    class="d-inline-flex text-decoration-none rounded"
+                                    :class="{ active: activeLink == list.lable }" @click="handleClick(list.lable)">
                                     {{ subList.title }}
                                 </RouterLink>
                             </li>
@@ -102,8 +99,6 @@ const menuLable = ref<INavMenu[]>([
     bottom: 0;
     width: 220px;
     transition: all 0.5s ease-in-out;
-    // z-index: 1;
-    // padding: 0 15px;
     background: rgb(31, 41, 55);
 
     ul {
@@ -131,13 +126,6 @@ const menuLable = ref<INavMenu[]>([
     text-align: left;
 }
 
-// .btn-toggle:hover,
-// .btn-toggle:focus {
-//     // color: rgba(var(--bs-emphasis-color-rgb), .85);
-//     // background-color: var(--bs-tertiary-bg);
-//     background-color: blue;
-// }
-
 .btn-toggle::before {
     order: 2;
     width: 1.25em;
@@ -164,13 +152,12 @@ const menuLable = ref<INavMenu[]>([
     padding: .1875rem .5rem;
     margin-top: .125rem;
     margin-left: 1.25rem;
-    color: rgb(158, 173, 191) !important;
 }
 
 .btn-toggle-nav a:hover,
 .btn-toggle-nav a:focus {
     // background-color: var(--bs-tertiary-bg);
-    background-color: blue;
+    color: white !important;
 }
 
 .scrollarea {
@@ -181,5 +168,9 @@ const menuLable = ref<INavMenu[]>([
     #sidebar {
         left: -300px;
     }
+}
+
+.active {
+    color: white !important;
 }
 </style>

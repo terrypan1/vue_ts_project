@@ -43,7 +43,7 @@ const router = createRouter({
     },
     {
       path: "/",
-      redirect: '/layout'
+      redirect: '/layout/dashboard'
     },
   ]
 })
