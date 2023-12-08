@@ -10,10 +10,12 @@ import BaseHeader from '../components/BaseHeader.vue'
     <RouterView />
   </div>
 </template>
-<style lang="scss" scoped>
+<style lang="scss">
 // .main-sidebar {
 //   position: fixed;
 // }
+
+
 .content {
   margin-left: 220px; // 將主內容向右移，避免與側邊欄重疊
 }

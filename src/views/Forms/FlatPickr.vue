@@ -94,7 +94,7 @@ console.log(obj)
   
 <style lang="scss">
 @import "../../assets/css/flatpickr.css";
-@import "../../assets/scss/flatPickr/bootstrap.scss";
+
 
 .form-control {
     border-radius: 10px !important;
@@ -102,5 +102,10 @@ console.log(obj)
 
 .form-label {
     font-weight: bold;
+}
+body {
+  background-color: rgb(235, 238, 242);
+  padding: 0;
+  margin: 0;
 }
 </style>
