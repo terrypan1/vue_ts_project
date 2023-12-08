@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+
 // import draggable from 'vuedraggable';
 
 // // 初始化列表

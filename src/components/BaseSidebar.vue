@@ -52,10 +52,10 @@ const menuLable = ref<INavMenu[]>([
         ]
     },
 ])
-const activeLink = ref(null)
-const handleClick = (link:string) => {
+const activeLink = ref<string | null>(null)
+const handleClick = (link: string) => {
     activeLink.value = link
-    console.log(link,activeLink.value)
+    console.log(link, activeLink.value)
 }
 </script>
 <template>
