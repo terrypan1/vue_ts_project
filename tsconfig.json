@@ -10,6 +10,8 @@
   ],
   "compilerOptions": {
     "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     // 其他設定
   },
   "include": [

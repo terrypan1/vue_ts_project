@@ -19,6 +19,7 @@
     "pinia": "^2.1.7",
     "sweetalert2": "^11.10.1",
     "vue": "^3.3.4",
+    "vue-dataset": "^3.6.1",
     "vue-flatpickr-component": "^11.0.3",
     "vue-router": "^4.2.5",
     "vuedraggable": "^4.1.0"

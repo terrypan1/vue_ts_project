@@ -2,7 +2,6 @@
 import { swalSuccess } from './useSweetAlert'
 import { useValidation } from './useVuelidate';
 import { header } from './useHeadering'//使用BaseHeadering
-import BaseHeadering from '../../components/Block/BaseHeadering.vue'
 // 使用自定義的鉤子
 const { state, v$ } = useValidation();
 async function onSubmit() {

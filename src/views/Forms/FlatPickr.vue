@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref, reactive, defineAsyncComponent } from 'vue';
 import flatPickr from 'vue-flatpickr-component';
-import BaseBlock from "../../components/Block/BaseBlock.vue";
-import BaseHeadering from '../../components/Block/BaseHeadering.vue'
 import type { IBaseHeader } from '../../types/data'
 import type { IShowProps } from '../../types/data'
 

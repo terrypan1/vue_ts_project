@@ -102,3 +102,10 @@ npm install @vuelidate/core @vuelidate/validators
 ```
 npm install sweetalert2
 ```
+
+### vue-dataset
+- // Vue Dataset, for more info and examples you can check out https://github.com/kouts/vue-dataset/tree/next
+- 
+```
+npm install vue-dataset@next --save
+```
