@@ -1,5 +1,5 @@
 import type { ITodoItem } from '@/types/data';
-import request from '../../utils/requests';
+import request from '../../http/requests';
 import { defineStore } from 'pinia';
 
 const mainStore = defineStore('main', {

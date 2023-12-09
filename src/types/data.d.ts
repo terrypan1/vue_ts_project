@@ -18,3 +18,19 @@ export interface INavMenu {
         path: string
     }[]
 }
+//card
+interface IShowProps {
+    show: {
+        header: boolean,
+        content: boolean,
+        footer: boolean
+    },
+}
+//BaseHeadering
+interface IBaseHeader {
+    label:string,
+    desctiption:string,
+    title: string,
+    sub: string
+    url: string
+}

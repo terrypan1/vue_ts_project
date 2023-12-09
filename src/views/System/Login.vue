@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { swalSuccess } from './useSweetAlert'
 import { useValidation } from './useVuelidate';
-
+import { header } from './useHeadering'//使用BaseHeadering
+import BaseHeadering from '../../components/Block/BaseHeadering.vue'
 // 使用自定義的鉤子
 const { state, v$ } = useValidation();
 async function onSubmit() {
@@ -13,12 +14,13 @@ async function onSubmit() {
     }
     swalSuccess('登陸成功')
 }
+
 </script>
 <template>
+    <BaseHeadering :header=header></BaseHeadering>
     <div class="container">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6 md-wd" style="margin-top:50px;width:450px">
+        <div class="d-flex justify-content-center">
+            <div class="md-wd mb-5" style="margin-top:50px;width:450px">
                 <div class="card fw-bold" style="border: 0px;">
                     <div class="card-header" style="border: 0px;">
                         <span>Sign In</span>

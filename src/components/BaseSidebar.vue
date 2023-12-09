@@ -51,6 +51,14 @@ const menuLable = ref<INavMenu[]>([
             { title: 'Login', path: '/layout/login' },
         ]
     },
+    {
+        lable: 'Tables',
+        target: '#menu7',
+        target2: 'menu7',
+        sub: [
+            { title: 'helpers', path: '/layout/helpers' },
+        ]
+    },
 ])
 const activeLink = ref<string | null>(null)
 const handleClick = (link: string) => {

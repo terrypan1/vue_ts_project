@@ -14,7 +14,7 @@ const handleKeyup = (name: string) => {
 
 <template>
     <header class="header">
-        <h1>todos</h1>
+        <h1 class="mt-4">todos</h1>
         <input class="new-todo" placeholder="What needs to be done?" autofocus v-model="nameInput" @keyup.enter="handleKeyup(nameInput)">
     </header>
 </template>

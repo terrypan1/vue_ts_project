@@ -26,7 +26,7 @@ interface Person {
 
 </script>
 <template>
-    <div class="container">
+    <div class="container" style="width: 80%;">
         <section class="todoapp">
             <Header></Header>
             <Main></Main>
