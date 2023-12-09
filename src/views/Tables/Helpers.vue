@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import BaseHeadering from '../../components/Block/BaseHeadering.vue'
 import BaseBlock from "../../components/Block/BaseBlock.vue";
-import { helpers } from './useHeadering.ts';//使用BaseHeadering
+import { helpers } from './useHeadering';//使用BaseHeadering
 import type { IShowProps } from '../../types/data'
 
 //BaseBlock
