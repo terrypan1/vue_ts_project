@@ -29,6 +29,9 @@ dependencies:
   vue:
     specifier: ^3.3.4
     version: 3.3.11(typescript@5.2.2)
+  vue-dataset:
+    specifier: ^3.6.1
+    version: 3.6.1(typescript@5.2.2)
   vue-flatpickr-component:
     specifier: ^11.0.3
     version: 11.0.3(vue@3.3.11)
@@ -1997,6 +2000,14 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
+
+  /vue-dataset@3.6.1(typescript@5.2.2):
+    resolution: {integrity: sha512-uSKYAaSKv+V97FLWZn8JzG0VgG8bh6l0ZIDbXkBh5N/IlukZCzMXwm8vD+O0SS11+ivUflKC0IWaO0Gh6xqL4g==, tarball: https://registry.npmmirror.com/vue-dataset/-/vue-dataset-3.6.1.tgz}
+    dependencies:
+      vue: 3.3.11(typescript@5.2.2)
+    transitivePeerDependencies:
+      - typescript
+    dev: false
 
   /vue-demi@0.13.11(vue@3.3.11):
     resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==, tarball: https://registry.npmmirror.com/vue-demi/-/vue-demi-0.13.11.tgz}

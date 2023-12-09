@@ -35,20 +35,26 @@ const cols = reactive([
     },
 ]);
 // Sort by functionality
+// const sortBy = computed(() => {
+//     return cols.reduce((acc, o) => {
+//         if (o.sort) {
+//             o.sort === "asc" ? acc.push(o.field) : acc.push("-" + o.field);
+//         }
+//         return acc;
+//     }, []);
+// });
 const sortBy = computed(() => {
-    return cols.reduce((acc, o) => {
+    return cols.reduce((acc: string[], o) => {
         if (o.sort) {
             o.sort === "asc" ? acc.push(o.field) : acc.push("-" + o.field);
         }
         return acc;
-    }, []);
+    }, [] as string[]); // 明确指定初始值类型为 string[]
 });
-
 // On sort th click
-function onSort(event, i) {
-    let toset;
+function onSort(event:any, i:any) {
+    let toset:any;
     const sortEl = cols[i];
-
     if (!event.shiftKey) {
         cols.forEach((o) => {
             if (o.field !== sortEl.field) {
