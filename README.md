@@ -63,7 +63,7 @@ import 'bootstrap/dist/js/bootstrap.js'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 ### Eslint
-# rules
+### rules
 - off
 - warn
 - error
@@ -97,15 +97,15 @@ npm i -S vuedraggable@next
 npm install @vuelidate/core @vuelidate/validators
 ```
 ### SweetAlert2 
-- // Sweetalert2, for more info and examples, you can check out https://github.com/sweetalert2/sweetalert2
+- Sweetalert2, for more info and examples, you can check out https://github.com/sweetalert2/sweetalert2
 - https://sweetalert2.github.io/#icons
 ```
 npm install sweetalert2
 ```
 
 ### vue-dataset
-- // Vue Dataset, for more info and examples you can check out https://github.com/kouts/vue-dataset/tree/next
-- 
+- Vue Dataset, for more info and examples you can check out https://github.com/kouts/vue-dataset/tree/next
+
 ```
 npm install vue-dataset@next --save
 ```

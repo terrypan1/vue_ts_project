@@ -11,6 +11,7 @@ import {
 // import users from '../../data/usersDataset.json';
 import useDatasetStore from '../../stores/Tables/datasetStore'
 import Addmodal from './Addmodal.vue'
+import { Modal } from 'bootstrap';
 const store = useDatasetStore()
 
 interface IUser {
@@ -95,7 +96,7 @@ interface IdataSetAdd {
         email: string | null,
         company: string | null,
         birthdate: string | null,
-        index:number
+        index: number
     }
 }
 const props = reactive<IdataSetAdd>({
@@ -104,26 +105,25 @@ const props = reactive<IdataSetAdd>({
         email: '',
         company: '',
         birthdate: '',
-        index:0
+        index: 0
     }
 }
 
 )
-let addModal = ref<any>(null);
-const initPopup = () => {
-    addModal.value = new window.bootstrap.Modal(document.getElementById("dataSetModal"));
-};
+// const initPopup = () => {
+//     addModal.value = new window.bootstrap.Modal(document.getElementById("dataSetModal"));
+// };
 //編輯
 const handleEdit = (item: number) => {
     store.index = item
     props.user = {
-        name:user.data[item].name,
+        name: user.data[item].name,
         email: user.data[item].email,
         company: user.data[item].company,
         birthdate: user.data[item].birthdate,
-        index:item
+        index: item
     }
-    addModal.value.show()
+    // addModal.value.show()
 }
 //刪除
 const handleEditDel = (item: number) => {
@@ -146,7 +146,6 @@ onMounted(() => {
         selectLength.classList.add("form-select");
         selectLength.style.width = "80px";
     }
-    initPopup()
 });
 </script>
 <template>
@@ -207,7 +206,12 @@ onMounted(() => {
                                                     </div>
                                                 </div>
                                             </div> -->
+                                            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal">
+                                                Launch demo modal
+                                            </button> -->
                                             <button type="button" class="btn btn-sm btn btn-primary me-1"
+                                                data-bs-toggle="modal" data-bs-target="#dataSetModal"
                                                 @click="handleEdit(rowIndex)">
                                                 <i class="bi bi-pencil-square"></i>
                                             </button>
