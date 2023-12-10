@@ -34,3 +34,8 @@ interface IBaseHeader {
     sub: string
     url: string
 }
+declare global {
+    interface Window {
+      bootstrap: any;
+    }
+  }
