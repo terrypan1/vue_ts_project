@@ -109,3 +109,4 @@ npm install sweetalert2
 ```
 npm install vue-dataset@next --save
 ```
+- ts 無法辨識 vue-dataset.d.ts 告訴vue declare module 'vue-dataset';
