@@ -33,7 +33,7 @@ const fields = [
     { label: 'Company', model: 'company' },
     { label: 'Birthdate', model: 'birthdate' }
 ];
-const isClose = ref<HTMLButtonElement>(null)
+const isClose = ref<HTMLButtonElement | null>(null);
 const handleClick = (target: string) => {
     if (target == 'edit') {
         store.users[status.index] = {
@@ -42,10 +42,14 @@ const handleClick = (target: string) => {
             company: status.user.company,
             birthdate: status.user.birthdate,
         }
-        isClose.value.click()
-    }else{
-        store.users.splice(status.index,1)
-        isClose.value.click()
+        if (isClose.value) {
+            isClose.value.click();
+        }
+    } else {
+        store.users.splice(status.index, 1)
+        if (isClose.value) {
+            isClose.value.click();
+        }
     }
 
 }
@@ -69,7 +73,8 @@ watch(() => props.user, (newVal) => {
                         <span v-if="store.target === 'edit'">Edit Data</span>
                         <span v-else-if="store.target === 'delete'">Delete Data</span>
                     </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ref="isClose"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        ref="isClose"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row justify-content-center">
