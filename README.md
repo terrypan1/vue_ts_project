@@ -46,7 +46,7 @@ npm run build
 | Edge | last 2 versions | last 2 versions | last 2 versions| last 2 versions
 
 Documentation and examples
-https://vue-ts-project-psi.vercel.app/#/layout/todo
+https://vue-ts-project-psi.vercel.app/
 
 
 ### Lint with [ESLint](https://eslint.org/)
