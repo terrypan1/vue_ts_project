@@ -94,7 +94,7 @@
         </draggable>
     </div> -->
 </template>
-<style>
+<style lang="scss" scoped>
 .draggable-container {
     max-width: 400px;
     margin: 0 auto;

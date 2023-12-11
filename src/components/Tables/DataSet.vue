@@ -107,15 +107,11 @@ const props = reactive<IdataSetAdd>({
         birthdate: '',
         index: 0
     }
-}
-
-)
-// const initPopup = () => {
-//     addModal.value = new window.bootstrap.Modal(document.getElementById("dataSetModal"));
-// };
-//編輯
-const handleEdit = (item: number) => {
+})
+//編輯or刪除
+const handleEdit = (item: number, taget: string) => {
     store.index = item
+    store.target = taget
     props.user = {
         name: user.data[item].name,
         email: user.data[item].email,
@@ -212,11 +208,11 @@ onMounted(() => {
                                             </button> -->
                                             <button type="button" class="btn btn-sm btn btn-primary me-1"
                                                 data-bs-toggle="modal" data-bs-target="#dataSetModal"
-                                                @click="handleEdit(rowIndex)">
+                                                @click="handleEdit(rowIndex, 'edit')">
                                                 <i class="bi bi-pencil-square"></i>
                                             </button>
-                                            <button type="button" class="btn btn-sm btn-danger"
-                                                @click="handleEditDel(rowIndex)">
+                                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#dataSetModal" @click="handleEdit(rowIndex, 'delete')">
                                                 <i class="bi bi-trash3"></i>
                                             </button>
                                         </div>

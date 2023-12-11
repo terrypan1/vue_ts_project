@@ -4,7 +4,8 @@ const datasetStore = defineStore('dataset', {
     state: () => {
         return {
             users,
-            index:0
+            index:0,
+            target:''//edit or delete
         }
     }
 })

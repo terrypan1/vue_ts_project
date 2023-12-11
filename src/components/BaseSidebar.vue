@@ -68,16 +68,64 @@ const handleClick = (link: string) => {
 </script>
 <template>
     <div id="sidebar">
-        <div class="d-flex flex-column mt-3">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 text-white text-decoration-none"
-                style="border-bottom: 1px solid white;">
-                <svg class="bi pe-none me-2" width="40" height="32">
-                    <use xlink:href="#bootstrap" />
-                </svg>
-                <span class="fs-4">Sidebar</span>
-            </a>
+        <div class="d-flex flex-column">
+            <div class="d-flex align-items-center justify-content-center"
+                style="background-color: rgb(35, 46, 62);height: 55px;">
+                <a href="/" class="text-decoration-none fw-bolder" style="line-height:1.75rem;color: rgb(203, 211, 218);">
+                    <span class="fs-5">Sidebar</span>
+                </a>
+                <div class="dropdown d-inline-block ms-2">
+                    <button class="btn" type="button" id="dropdownMenuOffset" data-bs-toggle="dropdown"
+                        aria-expanded="false" aria-haspopup="true" data-bs-offset="-100,0" style="width: 40px;">
+                        <i class="bi bi-moon text-white" style="font-size: 14px;"></i>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                        <li class="ms-5 "><a class="dropdown-li-a" href="#">
+                                <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
+                                Light
+                            </a>
+                        </li>
+                        <li class="ms-5"><a class="dropdown-li-a" href="#">
+                                <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
+                                Dark
+                            </a>
+                        </li>
+                        <li class="ms-5"><a class="dropdown-li-a" href="#">
+                                <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
+                                System
+                            </a>
+                        </li>
+                        <!-- <li><a class="dropdown-li-a" href="#">Dark</a></li>
+                        <li><a class="dropdown-li-a" href="#">System</a></li> -->
+                    </ul>
+                </div>
+                <div class="dropdown d-inline-block ms-2">
+                    <button class="btn" type="button" id="dropdownMenuOffset" data-bs-toggle="dropdown"
+                        aria-expanded="false" aria-haspopup="true" data-bs-offset="-100,0" style="width: 40px;">
+                        <i class="bi bi-brush text-white"></i> </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                        <li class="ms-5 "><a class="dropdown-li-a" href="#">
+                                <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
+                                Light
+                            </a>
+                        </li>
+                        <li class="ms-5"><a class="dropdown-li-a" href="#">
+                                <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
+                                Dark
+                            </a>
+                        </li>
+                        <li class="ms-5"><a class="dropdown-li-a" href="#">
+                                <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
+                                System
+                            </a>
+                        </li>
+                        <!-- <li><a class="dropdown-li-a" href="#">Dark</a></li>
+                        <li><a class="dropdown-li-a" href="#">System</a></li> -->
+                    </ul>
+                </div>
+            </div>
             <hr>
-            <ul class="list-unstyled ps-0 flex-column m-1">
+            <ul class="list-unstyled ps-0 flex-column m-1" style="background-color: rgb(31, 41, 55);">
                 <li class="mb-1" v-for="(list, item) in menuLable" :key="item">
                     <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                         data-bs-toggle="collapse" :data-bs-target=list.target aria-expanded="false">
@@ -99,7 +147,7 @@ const handleClick = (link: string) => {
         </div>
     </div>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 #sidebar {
     position: fixed;
     top: 0;
@@ -107,7 +155,7 @@ const handleClick = (link: string) => {
     bottom: 0;
     width: 220px;
     transition: all 0.5s ease-in-out;
-    background: rgb(31, 41, 55);
+    background-color: rgb(31, 41, 55);
 
     ul {
         button {
@@ -180,5 +228,29 @@ const handleClick = (link: string) => {
 
 .active {
     color: white !important;
+}
+
+.dropdown {
+    button {
+        color: rgb(158, 173, 191);
+
+        &:hover {
+            background-color: black;
+        }
+
+        &:focus {
+            background-color: black;
+            outline: 0;
+            /* 移除瀏覽器默認的輪廓 */
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+    }
+}
+
+.dropdown-li-a {
+    text-decoration: none;
+    color: rgb(57, 71, 90);
+    font-size: 16px;
+    font-weight: 900;
 }
 </style>
