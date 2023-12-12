@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { swalSuccess } from '../views/System/useSweetAlert'
-import { useValidation } from '../views/System/useVuelidate';
+import { swalSuccess } from '../views/Anthentication/useSweetAlert'
+import { useValidation } from '../views/Anthentication/useVuelidate';
 import { useRouter } from "vue-router";
 // 使用自定義的鉤子
 const { state, v$ } = useValidation();

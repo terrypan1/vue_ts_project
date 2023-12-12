@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref, reactive, defineAsyncComponent } from 'vue';
+import { helpers } from './useHeadering';//使用BaseHeadering
+import { card } from './useBaseBlock';//BaseBlock
 import flatPickr from 'vue-flatpickr-component';
 import type { IBaseHeader } from '../../types/data'
 import type { IShowProps } from '../../types/data'
@@ -11,7 +13,7 @@ const AsyncComponent = defineAsyncComponent(() => {
     return import('../../components/defineAsyncComponent/buttonDemo.vue')
 })
 
-const flatPickrState = reactive({
+const flatPickrState = reactive<any>({
     // Initial values
     dateDefault: null,
     dateCustom: null,
@@ -49,26 +51,10 @@ const greet = (person: string, date: Date) => {
     console.log(person, date.toISOString().split('T')[0]);
 }
 greet('小名', new Date('2023-11-12'))
-//BaseHeadering
-const header = ref<IBaseHeader>({
-    label: 'FlatPickr Helpers',
-    desctiption: 'Custom functionality to further enrich your tables.',
-    title: 'Froms',
-    sub: 'FlatPickr',
-    url: '/layout/flastPickerDemo'
-})
-//BaseBlock
-const card = ref<IShowProps>({
-    show: {
-        header: true,
-        content: true,
-        footer: false
-    },
-})
 </script>
 
 <template>
-    <BaseHeadering :header="header"></BaseHeadering>
+    <BaseHeadering :header="helpers"></BaseHeadering>
     <div class="container mt-xl-5 mt-3 w-100">
         <div class="d-flex justify-content-center">
             <BaseBlock :show="card.show" style="width: 80%;">
@@ -79,18 +65,60 @@ const card = ref<IShowProps>({
                     </div>
                 </template>
                 <template #content>
-                    <div class="form-group" style="text-align: center;">
-                        <label class="form-label" for="example-flatpickr-default">Default format</label>
-                        <div class="input-group">
-                            <flat-pickr v-model="flatPickrState.dateDefault" class="form-control" placeholder="Y-m-d" />
+                    <div class="contaier">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p style="color: rgb(119, 127, 135);">flatpickr is a lightweight and powerful datetime
+                                    picker.</p>
+                            </div>
+                            <div class="col-md-8 mb-5">
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="example-flatpickr-default">Default format</label>
+                                        <flat-pickr v-model="flatPickrState.dateDefault" class="form-control"
+                                            placeholder="Y-m-d" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mt-4 d-flex justify-content-center flex-column text-center">
-                        <div>
-                            <button type="button" class="btn btn-primary" @click="isLoaded = true">異步組件</button>
+                        <p class="border-bottom mb-4 pb-2 mt-4 fw-bold">
+                            Datepicker Range
+                        </p>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p style="color: rgb(119, 127, 135);">Very useful for booking or calendaring web apps</p>
+                            </div>
+                            <div class="col-md-8">
+                                <label class="form-label" for="example-flatpickr-default">Date Range</label>
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <flat-pickr class="form-control" placeholder="Date Range"
+                                            v-model="flatPickrState.dateRange" :config="flatPickrState.configRange" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <AsyncComponent v-if="isLoaded"></AsyncComponent>
+                        <p class="border-bottom mb-4 pb-2 mt-4 fw-bold">
+                            異步組件
+                        </p>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p style="color: rgb(119, 127, 135);">Can be used to optimize initial load time.</p>
+                            </div>
+                            <div class="col-md-8">
+                                <label class="form-label" for="example-flatpickr-default">AsyncComponent</label>
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <div>
+                                            <button type="button" class="btn btn-primary"
+                                                @click="isLoaded = true">異步組件</button>
+                                        </div>
+                                        <div>
+                                            <AsyncComponent v-if="isLoaded"></AsyncComponent>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </template>

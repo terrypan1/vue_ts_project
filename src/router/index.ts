@@ -38,7 +38,7 @@ const router = createRouter({
         {
           path: 'login',
           name: 'layouLogin',
-          component: () => import('../views/System/Login.vue'),
+          component: () => import('../views/Anthentication/Login.vue'),
         },
         {
           path: 'helpers',

@@ -44,7 +44,7 @@ const menuLable = ref<INavMenu[]>([
         ]
     },
     {
-        lable: 'System',
+        lable: 'Anthentication',
         target: '#menu6',
         target2: 'menu6',
         sub: [
@@ -100,7 +100,7 @@ const handleClick = (link: string) => {
                                 <li class="ms-5"><a class="dropdown-li-a" href="#">
                                         <input class="form-check-input" type="radio" id="radio-dark-mode-off"
                                             value="light" />
-                                        System
+                                        Anthentication
                                     </a>
                                 </li>
                             </ul>
@@ -125,7 +125,7 @@ const handleClick = (link: string) => {
                                 <li class="ms-5"><a class="dropdown-li-a" href="#">
                                         <input class="form-check-input" type="radio" id="radio-dark-mode-off"
                                             value="light" />
-                                        System
+                                        Anthentication
                                     </a>
                                 </li>
                             </ul>

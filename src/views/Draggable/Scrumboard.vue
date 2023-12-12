@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { helpers } from './useHeadering';//使用BaseHeadering
+import { card } from './useBaseBlock';//BaseBlock
 
 // import draggable from 'vuedraggable';
 
@@ -53,7 +55,22 @@
 
 </script>
 <template>
-    <div>draggable</div>
+    <BaseHeadering :header=helpers></BaseHeadering>
+    <div class="container mt-xl-5 mt-3 w-100">
+        <div class="m-lg-5">
+            <BaseBlock :show="card.show">
+                <template #header>
+                    <div class="card-header border-0 fw-bolder"
+                        style="color:rgb(22, 26, 31);font-size:14px;letter-spacing:0.0625rem;line-height:1.75rem;">
+                        Scrumboard
+                    </div>
+                </template>
+                <template #content>
+                    施工中...
+                </template>
+            </BaseBlock>
+        </div>
+    </div>
     <!-- <div class="draggable-container">
         <draggable v-model="items" class="drag-area" :item-key="'text'">
             <template #item="{ element }">
