@@ -2,12 +2,22 @@
 import { ref } from 'vue'
 import BaceBlock from '../../components/Block/BaseBlock.vue'
 import type { IShowProps } from '../../types/data'
+import EchartsBar from '../../components/TsDashboard/EchartsBar.vue'
+import EchartsLargeArea from '../../components/TsDashboard/EchartsLargeArea.vue'
+
 //BaseBlock
 const card = ref<IShowProps>({
     show: {
         header: false,
         content: true,
         footer: true
+    },
+})
+const cardEcharts = ref<IShowProps>({
+    show: {
+        header: true,
+        content: true,
+        footer: false
     },
 })
 </script>
@@ -194,13 +204,34 @@ const card = ref<IShowProps>({
             </div>
         </div>
     </div>
-    <div class="container mt-xl-5 mt-3">
+    <div class="container mt-xl-5 mt-3 mb-4">
         <div class="row  ms-2-md-none">
-            <div class="col-xl-8 col-xxl-9">123</div>
+            <div class="col-xl-8 col-xxl-9">
+                <BaceBlock :show="cardEcharts.show">
+                    <template #header>
+                        <div class="card-header border-0 fw-bold h3"
+                            style="color:rgb(22, 26, 31);font-size:14px;letter-spacing:0.0625rem;line-height:1.75rem;">
+                            Echarts
+                        </div>
+                    </template>
+                    <template #content>
+                        <EchartsBar></EchartsBar>
+                    </template>
+                </BaceBlock>
+            </div>
             <div class="col-xl-4 col-xxl-3">
-                <div>111</div>
+                <!-- <div>
+                    <BaceBlock :show="card.show">
+                        <template #content>
+                            <EchartsLargeArea></EchartsLargeArea>
+                        </template>
+                        <template #footer>
+                            footer
+                        </template>
+                    </BaceBlock>
+                </div>
                 <div>222</div>
-                <div>333</div>
+                <div>333</div> -->
             </div>
         </div>
     </div>
@@ -251,9 +282,11 @@ const card = ref<IShowProps>({
         width: 100% !important;
     }
 }
+
 @media (max-width: 767.98px) {
     .ms-2-md-none {
-        margin-left: 0.25rem; /* ms-2對應的樣式 */
+        margin-left: 0.25rem;
+        /* ms-2對應的樣式 */
     }
 }
 </style>

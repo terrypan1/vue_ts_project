@@ -16,7 +16,8 @@ import WritingBoard from '../../components/CanvasDemo/WritingBoard.vue'
                     </div>
                 </template>
                 <template #content>
-                    <WritingBoard></WritingBoard>                </template>
+                    <WritingBoard></WritingBoard>
+                </template>
             </BaseBlock>
         </div>
     </div>
