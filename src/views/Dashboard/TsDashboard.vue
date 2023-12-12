@@ -12,11 +12,10 @@ const card = ref<IShowProps>({
 })
 </script>
 <template>
-    <div class="container mt-5" style="width: 80%;">
-        <div class="d-flex justify-content-md-between w-80  flex-md-row flex-column">
-            <div class="">
-
-                <h1 class="h3 fw-bold mb-2">最新消息</h1>
+    <div class="container mt-5 w-80">
+        <div class="d-flex justify-content-md-between w-80 flex-md-row flex-column">
+            <div class="text-center text-md-start">
+                <h1 class="h3 fw-bold mb-2 ">最新消息</h1>
                 <h2 class="h6 fw-medium fw-medium text-muted mb-0">
                     Welcome
                     <span class="fw-semibold" style="color: rgb(76, 120, 221);">Terry,</span>
@@ -24,7 +23,7 @@ const card = ref<IShowProps>({
                     looks great.
                 </h2>
             </div>
-            <div class="mt-3 mt-md-0 ms-md-3 space-x-1">
+            <div class="mt-3 mt-md-0 ms-md-3 space-x-1 text-center text-md-start">
                 <a class="btn btn-sm btn-alt-secondary space-x-1">
                     <i class="bi bi-calendar-event-fill opacity-50"></i>
                     <span class="me-3 ms-1 fw-bold">Settings</span>
@@ -35,8 +34,8 @@ const card = ref<IShowProps>({
         <div class="content">
         </div>
     </div>
-    <div class="container mt-xl-5 mt-3" style="width: 85%;">
-        <div class="row ms-md-2">
+    <div class="container mt-xl-5 mt-3">
+        <div class="row  w-100 ms-2-md-none">
             <div class="col-sm-6 col-xxl-3 mb-3">
                 <BaceBlock :show="card.show">
                     <template #content>
@@ -195,6 +194,16 @@ const card = ref<IShowProps>({
             </div>
         </div>
     </div>
+    <div class="container mt-xl-5 mt-3">
+        <div class="row  ms-2-md-none">
+            <div class="col-xl-8 col-xxl-9">123</div>
+            <div class="col-xl-4 col-xxl-3">
+                <div>111</div>
+                <div>222</div>
+                <div>333</div>
+            </div>
+        </div>
+    </div>
 </template>
 <style lang="scss" scoped>
 .footer-card {
@@ -231,5 +240,20 @@ const card = ref<IShowProps>({
 .btn-alt-secondary:hover {
     background-color: #d4d6da;
     border-color: #d4d6da;
+}
+
+.container {
+    width: 90%;
+}
+
+@media (max-width: 767.98px) {
+    .container {
+        width: 100% !important;
+    }
+}
+@media (max-width: 767.98px) {
+    .ms-2-md-none {
+        margin-left: 0.25rem; /* ms-2對應的樣式 */
+    }
 }
 </style>
