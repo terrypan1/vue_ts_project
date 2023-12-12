@@ -16,11 +16,11 @@ export function useValidation() {
         return {
             username: {
                 required,
-                minLength: minLength(3),
+                minLength: minLength(4),
             },
             password: {
                 required,
-                minLength: minLength(5),
+                minLength: minLength(4),
             },
         };
     });

@@ -111,9 +111,9 @@ const card = ref<IShowProps>({
     font-weight: bold;
 }
 
-body {
-    background-color: rgb(235, 238, 242);
-    padding: 0;
-    margin: 0;
-}
+// body {
+//     background-color: rgb(235, 238, 242);
+//     padding: 0;
+//     margin: 0;
+// }
 </style>

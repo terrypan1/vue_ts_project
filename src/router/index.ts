@@ -4,6 +4,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
+
     {
       path: '/layout',
       name: 'layout',
@@ -36,7 +37,7 @@ const router = createRouter({
         },
         {
           path: 'login',
-          name: 'login',
+          name: 'layouLogin',
           component: () => import('../views/System/Login.vue'),
         },
         {
@@ -47,8 +48,13 @@ const router = createRouter({
       ],
     },
     {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/Login.vue'),
+    },
+    {
       path: "/",
-      redirect: '/layout/dashboard'
+      redirect: 'login'
     },
   ]
 })

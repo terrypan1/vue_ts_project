@@ -10,7 +10,7 @@ import BaseHeader from '../components/BaseHeader.vue'
     <RouterView />
   </div>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 // .main-sidebar {
 //   position: fixed;
 // }

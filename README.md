@@ -122,6 +122,7 @@ npm install vue-dataset@next --save
 - ts 無法辨識 vue-dataset.d.ts 告訴vue declare module 'vue-dataset';
 
 ### echarts
+- echarts, for more info and examples you can check out https://echarts.apache.org/zh/index.html
 ```
 npm install echarts
 ```
