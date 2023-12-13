@@ -131,3 +131,8 @@ npm install echarts
 ```
 npm install simplebar-vue --save
 ```
+
+### vue-draggable-next
+```
+npm install vue-draggable-next
+```

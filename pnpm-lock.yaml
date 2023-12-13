@@ -38,6 +38,9 @@ dependencies:
   vue-dataset:
     specifier: ^3.6.1
     version: 3.6.1(typescript@5.2.2)
+  vue-draggable-next:
+    specifier: ^2.2.1
+    version: 2.2.1(sortablejs@1.14.0)(vue@3.3.11)
   vue-flatpickr-component:
     specifier: ^11.0.3
     version: 11.0.3(vue@3.3.11)
@@ -2091,6 +2094,16 @@ packages:
       '@vue/composition-api':
         optional: true
     dependencies:
+      vue: 3.3.11(typescript@5.2.2)
+    dev: false
+
+  /vue-draggable-next@2.2.1(sortablejs@1.14.0)(vue@3.3.11):
+    resolution: {integrity: sha512-EAMS1IRHF0kZO0o5PMOinsQsXIqsrKT1hKmbICxG3UEtn7zLFkLxlAtajcCcUTisNvQ6TtCB5COjD9a1raNADw==, tarball: https://registry.npmmirror.com/vue-draggable-next/-/vue-draggable-next-2.2.1.tgz}
+    peerDependencies:
+      sortablejs: ^1.14.0
+      vue: ^3.2.2
+    dependencies:
+      sortablejs: 1.14.0
       vue: 3.3.11(typescript@5.2.2)
     dev: false
 
