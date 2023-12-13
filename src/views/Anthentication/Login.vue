@@ -2,6 +2,9 @@
 import { swalSuccess } from './useSweetAlert'
 import { useValidation } from './useVuelidate';
 import { header } from './useHeadering'//使用BaseHeadering
+import Simplebar from 'simplebar-vue';
+import 'simplebar-vue/dist/simplebar.min.css';
+import { onMounted } from 'vue';
 // 使用自定義的鉤子
 const { state, v$ } = useValidation();
 async function onSubmit() {
@@ -13,7 +16,6 @@ async function onSubmit() {
     }
     swalSuccess('登陸成功')
 }
-
 </script>
 <template>
     <BaseHeadering :header=header></BaseHeadering>

@@ -36,7 +36,7 @@ import MiniSideBar from './Block/MiniSidebar.vue'
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li style="border-bottom: 1px #ccc solid;"><a class="dropdown-item" href="#">Something else
                                         here</a></li>
-                                <li class="mt-1"><a class="dropdown-item" href="#">Login out</a></li>
+                                <li class="mt-1"><a class="dropdown-item" href="/login">Login out</a></li>
                             </ul>
                         </div>
                     </li>

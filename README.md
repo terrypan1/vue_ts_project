@@ -126,3 +126,8 @@ npm install vue-dataset@next --save
 ```
 npm install echarts
 ```
+### npm install simplebar-vue --save
+- https://github.com/Grsmto/simplebar/tree/master/packages/simplebar-vue
+```
+npm install simplebar-vue --save
+```

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
 import type { INavMenu } from '../../src/types/data';
-
+import Simplebar from 'simplebar-vue';
+import 'simplebar-vue/dist/simplebar.min.css';
 const menuLable = ref<INavMenu[]>([
     {
         lable: 'Dashboard',
@@ -59,7 +60,6 @@ const menuLable = ref<INavMenu[]>([
             { title: 'helpers', path: '/layout/helpers' },
         ]
     },
-    
 ])
 const activeLink = ref<string | null>(null)
 const handleClick = (link: string) => {
@@ -96,8 +96,6 @@ const handleClick = (link: string) => {
                                 Anthentication
                             </a>
                         </li>
-                        <!-- <li><a class="dropdown-li-a" href="#">Dark</a></li>
-                        <li><a class="dropdown-li-a" href="#">Anthentication</a></li> -->
                     </ul>
                 </div>
                 <div class="dropdown d-inline-block ms-2">
@@ -127,28 +125,30 @@ const handleClick = (link: string) => {
             </div>
             <hr>
             <ul class="list-unstyled ps-0 flex-column m-1" style="background-color: rgb(31, 41, 55);">
-                <li class="mb-1" v-for="(list, item) in menuLable" :key="item">
-                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-                        data-bs-toggle="collapse" :data-bs-target=list.target aria-expanded="false">
-                        {{ list.lable }}
-                    </button>
-                    <div class="collapse" :id=list.target2>
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li v-for="(subList, subItem) in list.sub" :key="subItem">
-                                <RouterLink :to=subList.path style="color: rgb(158, 173, 191);"
-                                    class="d-inline-flex text-decoration-none rounded"
-                                    :class="{ active: activeLink == list.lable }" @click="handleClick(list.lable)">
-                                    {{ subList.title }}
-                                </RouterLink>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                <Simplebar style="max-height: 85vh;max-width: 230px;" class="js-sidebar-scroll">
+                    <li class="mb-1" v-for="(list, item) in menuLable" :key="item">
+                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                            data-bs-toggle="collapse" :data-bs-target=list.target aria-expanded="false">
+                            {{ list.lable }}
+                        </button>
+                        <div class="collapse" :id=list.target2>
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li v-for="(subList, subItem) in list.sub" :key="subItem">
+                                    <RouterLink :to=subList.path style="color: rgb(158, 173, 191);"
+                                        class="d-inline-flex text-decoration-none rounded"
+                                        :class="{ active: activeLink == list.lable }" @click="handleClick(list.lable)">
+                                        {{ subList.title }}
+                                    </RouterLink>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </Simplebar>
             </ul>
         </div>
     </div>
 </template>
-<style lang="scss" scoped>
+<style lang="scss">
 #sidebar {
     position: fixed;
     top: 0;
@@ -254,4 +254,19 @@ const handleClick = (link: string) => {
     font-size: 16px;
     font-weight: 900;
 }
-</style>
+
+.js-sidebar-scroll {
+    height: calc(100% - 20%);
+    overflow-y: auto;
+}
+
+.simplebar-scrollbar::before {
+    width: 4px;
+    /* 或您希望的任何宽度 */
+}
+
+/* 调整滚动条的颜色 */
+.simplebar-scrollbar::before {
+    background-color: darkgrey;
+    /* 滚动条颜色 */
+}</style>
