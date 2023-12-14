@@ -2,6 +2,7 @@
 import { swalSuccess } from '../views/Anthentication/useSweetAlert'
 import { useValidation } from '../views/Anthentication/useVuelidate';
 import { useRouter } from "vue-router";
+import Bear from '../components/Login/Bear.vue';
 import { ref, onMounted } from 'vue';
 const isImageLoaded = ref(false);//定義一個數據屬性 來追蹤圖片是否加載完成
 
@@ -18,12 +19,23 @@ async function onSubmit() {
     swalSuccess('登陸成功')
     $router.push("/layout/dashboard")
 }
-onMounted(() => {
-    const img = new Image();
-    img.src = '/assets/media/intro-bg.jpg';
-    img.onload = () => {
-        isImageLoaded.value = true;
-    };
+const loadImage = () => {
+    return new Promise<void>((resolve) => {
+        const img = new Image();
+        img.src = '/assets/media/intro-bg.jpg';
+        img.onload = () => resolve();
+    });
+};
+
+const waitForMinimumTime = () => {
+    return new Promise<void>(resolve => {
+        setTimeout(resolve, 3000);
+    });
+};
+
+onMounted(async () => {
+    await Promise.all([loadImage(), waitForMinimumTime()]);
+    isImageLoaded.value = true;
 });
 </script>
 <template>
@@ -80,7 +92,7 @@ onMounted(() => {
     </div>
     </div>
     <div v-else>
-        <div>Loading...</div>
+        <Bear></Bear>
     </div>
 </template>
 <style lang="scss" scoped>

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import MiniSideBar from './Block/MiniSidebar.vue'
-
 </script>
 <template>
     <MiniSideBar></MiniSideBar>
