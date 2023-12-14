@@ -93,7 +93,7 @@ const handleClick = (link: string) => {
                         </li>
                         <li class="ms-5"><a class="dropdown-li-a" href="#">
                                 <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
-                                Anthentication
+                                System
                             </a>
                         </li>
                     </ul>
@@ -115,11 +115,9 @@ const handleClick = (link: string) => {
                         </li>
                         <li class="ms-5"><a class="dropdown-li-a" href="#">
                                 <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
-                                Anthentication
+                                System
                             </a>
                         </li>
-                        <!-- <li><a class="dropdown-li-a" href="#">Dark</a></li>
-                        <li><a class="dropdown-li-a" href="#">Anthentication</a></li> -->
                     </ul>
                 </div>
             </div>

@@ -11,7 +11,7 @@ import MiniSideBar from './Block/MiniSidebar.vue'
                     <i class="bi bi-three-dots-vertical text-white"></i>
                 </button>
                 <button type="button" class="btn d-md-block d-lg-none" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                    data-bs-target="#offcanvasLeftHeader" aria-controls="offcanvasLeftHeader">
                     <i class="bi bi-list text-white"></i>
                 </button>
             </div>
@@ -34,24 +34,26 @@ import MiniSideBar from './Block/MiniSidebar.vue'
                                     <p class="mb-3 fw-bold" style="font-size: 14px;color: rgb(108, 117, 125);">Front-end
                                         engineer</p>
                                 </div>
-                                <li class="p-1"><a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
+                                <li class="p-1"><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                        href="#">
                                         <span>Inbox</span>
                                         <span class="badge rounded-pill"
                                             style="background-color: rgb(76, 120, 221);">1</span>
                                     </a>
                                 </li>
-                                <li class="p-1"><a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
+                                <li class="p-1"><a class="dropdown-item d-flex justify-content-between align-items-center"
+                                        href="#">
                                         <span>Profile</span>
                                         <span class="badge rounded-pill"
                                             style="background-color: rgb(76, 120, 221);">3</span>
                                     </a>
                                 </li>
                                 <li class="p-1">
-                                        <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
-                                            <span>Settings</span>
-                                            <span class="badge rounded-pill"
-                                                style="background-color: rgb(76, 120, 221);">3</span>
-                                        </a>
+                                    <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
+                                        <span>Settings</span>
+                                        <span class="badge rounded-pill"
+                                            style="background-color: rgb(76, 120, 221);">3</span>
+                                    </a>
                                 </li>
                                 <div class="border-bottom"></div>
                                 <li class="mt-1 p-1">
@@ -74,7 +76,8 @@ import MiniSideBar from './Block/MiniSidebar.vue'
                         </div>
                     </li>
                     <li class="nav-item me-5 ms-2">
-                        <button class="btn btn-secondary" type="button">
+                        <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasSecond" aria-controls="offcanvasRight">
                             <i class="bi bi-list-ul"></i>
                         </button>
                     </li>
@@ -82,6 +85,15 @@ import MiniSideBar from './Block/MiniSidebar.vue'
             </div>
         </div>
     </nav>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasSecond" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">施工中....</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            ...
+        </div>
+    </div>
 </template>
 <style lang="scss" scoped>
 .dropdown-menu {
@@ -146,4 +158,5 @@ import MiniSideBar from './Block/MiniSidebar.vue'
             box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
         }
     }
-}</style>
+}
+</style>

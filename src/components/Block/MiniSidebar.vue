@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import type { INavMenu } from '../../../src/types/data';
-
+import Simplebar from 'simplebar-vue';
+import 'simplebar-vue/dist/simplebar.min.css';
 const menuLable = ref<INavMenu[]>([
     {
         lable: 'Dashboard',
@@ -68,75 +69,72 @@ const handleClick = (link: string) => {
 }
 </script>
 <template>
-    <div class="offcanvas offcanvas-start h-100" tabindex="-1" id="offcanvasExample"
-        aria-labelledby="offcanvasExampleLabel">
-        <div id="sidebar" class="w-100 h-100">
-            <div class="d-flex flex-column w-100">
-                <div class="d-flex align-items-center justify-content-between "
-                    style="background-color: rgb(35, 46, 62);height: 55px;">
-                    <div class="ms-5">
-                        <a href="/" class="text-decoration-none fw-bolder"
-                            style="line-height:1.75rem;color: rgb(203, 211, 218);">
-                            <span class="fs-5">Sidebar</span>
-                        </a>
-                        <div class="dropdown d-inline-block ms-2">
-                            <button class="btn" type="button" id="dropdownMenuOffset" data-bs-toggle="dropdown"
-                                aria-expanded="false" aria-haspopup="true" data-bs-offset="-100,0" style="width: 40px;">
-                                <i class="bi bi-moon text-white" style="font-size: 14px;"></i>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                                <li class="ms-5 "><a class="dropdown-li-a" href="#">
-                                        <input class="form-check-input" type="radio" id="radio-dark-mode-off"
-                                            value="light" />
-                                        Light
-                                    </a>
-                                </li>
-                                <li class="ms-5"><a class="dropdown-li-a" href="#">
-                                        <input class="form-check-input" type="radio" id="radio-dark-mode-off"
-                                            value="light" />
-                                        Dark
-                                    </a>
-                                </li>
-                                <li class="ms-5"><a class="dropdown-li-a" href="#">
-                                        <input class="form-check-input" type="radio" id="radio-dark-mode-off"
-                                            value="light" />
-                                        Anthentication
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="dropdown d-inline-block ms-2">
-                            <button class="btn" type="button" id="dropdownMenuOffset" data-bs-toggle="dropdown"
-                                aria-expanded="false" aria-haspopup="true" data-bs-offset="-100,0" style="width: 40px;">
-                                <i class="bi bi-brush text-white"></i> </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                                <li class="ms-5 "><a class="dropdown-li-a" href="#">
-                                        <input class="form-check-input" type="radio" id="radio-dark-mode-off"
-                                            value="light" />
-                                        Light
-                                    </a>
-                                </li>
-                                <li class="ms-5"><a class="dropdown-li-a" href="#">
-                                        <input class="form-check-input" type="radio" id="radio-dark-mode-off"
-                                            value="light" />
-                                        Dark
-                                    </a>
-                                </li>
-                                <li class="ms-5"><a class="dropdown-li-a" href="#">
-                                        <input class="form-check-input" type="radio" id="radio-dark-mode-off"
-                                            value="light" />
-                                        Anthentication
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+    <div class="offcanvas offcanvas-start " tabindex="-1" id="offcanvasLeftHeader"
+        aria-labelledby="offcanvasLeftHeaderLabel" style="background-color: rgb(31, 41, 55);">
+        <div class="d-flex flex-column w-100" style="background-color:rgb(35, 46, 62);">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="ms-5">
+                    <a href="/" class="text-decoration-none fw-bolder"
+                        style="line-height:1.75rem;color: rgb(203, 211, 218);">
+                        <span class="fs-5">Sidebar</span>
+                    </a>
+                    <div class="dropdown d-inline-block ms-2">
+                        <button class="btn" type="button" id="dropdownMenuOffset" data-bs-toggle="dropdown"
+                            aria-expanded="false" aria-haspopup="true" data-bs-offset="-100,0" style="width: 40px;">
+                            <i class="bi bi-moon text-white" style="font-size: 14px;"></i>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                            <li class="ms-5 "><a class="dropdown-li-a" href="#">
+                                    <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
+                                    Light
+                                </a>
+                            </li>
+                            <li class="ms-5"><a class="dropdown-li-a" href="#">
+                                    <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
+                                    Dark
+                                </a>
+                            </li>
+                            <li class="ms-5"><a class="dropdown-li-a" href="#">
+                                    <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
+                                    Anthentication
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <button type="button" class="btn right-container me-2" data-bs-dismiss="offcanvas" aria-label="Close">
-                        <i class="bi bi-x-lg text-white" style="font-size: 20px;"></i>
+                    <div class="dropdown d-inline-block">
+                        <button class="btn" type="button" id="dropdownMenuOffset" data-bs-toggle="dropdown"
+                            aria-expanded="false" aria-haspopup="true" data-bs-offset="-100,0" style="width: 40px;">
+                            <i class="bi bi-brush text-white"></i> </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                            <li class="ms-5 "><a class="dropdown-li-a" href="#">
+                                    <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
+                                    Light
+                                </a>
+                            </li>
+                            <li class="ms-5"><a class="dropdown-li-a" href="#">
+                                    <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
+                                    Dark
+                                </a>
+                            </li>
+                            <li class="ms-5"><a class="dropdown-li-a" href="#">
+                                    <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
+                                    Anthentication
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="close-btn">
+                    <button type="button" class="btn" data-bs-dismiss="offcanvas" style="width: 40px;">
+                        <i class="bi bi-x-lg text-white" style="font-size: 16px;"></i>
                     </button>
                 </div>
-                <hr>
-                <ul class="list-unstyled ps-0 flex-column m-1" style="background-color: rgb(31, 41, 55);">
+            </div>
+        </div>
+        <hr>
+        <div class="siderbar-ul h-100 w-100">
+            <ul class="list-unstyled ps-0 flex-column m-1 h-100">
+                <Simplebar style=";max-width: 500px;" class="js-sidebar-scroll">
                     <li class="mb-1" v-for="(list, item) in menuLable" :key="item">
                         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                             data-bs-toggle="collapse" :data-bs-target=list.target aria-expanded="false">
@@ -154,24 +152,20 @@ const handleClick = (link: string) => {
                             </ul>
                         </div>
                     </li>
-                </ul>
-            </div>
+                </Simplebar>
+            </ul>
         </div>
+        <!-- </div> -->
     </div>
 </template>
 <style lang="scss" scoped>
-#sidebar {
-    // height: 100vh;
-    transition: all 0.5s ease-in-out;
-    background-color: rgb(31, 41, 55);
-
+.siderbar-ul {
     ul {
         button {
             color: rgb(158, 173, 191);
         }
     }
 }
-
 
 .dropdown-toggle {
     outline: 0;
@@ -228,11 +222,11 @@ const handleClick = (link: string) => {
     overflow-y: auto;
 }
 
-@media (max-width: 992px) {
-    #sidebar {
-        left: -300px;
-    }
-}
+// @media (max-width: 992px) {
+//     #sidebar {
+//         left: -300px;
+//     }
+// }
 
 .active {
     color: white !important;
@@ -254,7 +248,22 @@ const handleClick = (link: string) => {
         }
     }
 }
+.close-btn {
+    button {
+        // background-color: rgb(108, 117, 125);
 
+        &:hover {
+            background-color: black;
+        }
+
+        &:focus {
+            background-color: black;
+            outline: 0;
+            /* 移除瀏覽器默認的輪廓 */
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+    }
+}
 .dropdown-li-a {
     text-decoration: none;
     color: rgb(57, 71, 90);
@@ -262,18 +271,16 @@ const handleClick = (link: string) => {
     font-weight: 900;
 }
 
-.right-container {
+.js-sidebar-scroll {
+    height: calc(100% - 20%);
+    overflow-y: auto;
+}
 
-    width: 44px;
-    height: 44px;
-    &:hover {
-        background-color: black;
-    }
+.simplebar-scrollbar::before {
+    width: 4px;
+}
 
-    &:focus {
-        background-color: black;
-        outline: 0;
-        /* 移除瀏覽器默認的輪廓 */
-        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-    }
-}</style>
+.simplebar-scrollbar::before {
+    background-color: darkgrey;
+}
+</style>
