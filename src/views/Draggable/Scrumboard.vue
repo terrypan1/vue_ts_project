@@ -56,18 +56,22 @@ watch(project_list, (newValue, oldValue) => {
                             <h3 class="fw-bold mb-4" style="font-size: 16px;">{{ project.title }}</h3>
                             <draggable class="task-list" v-model="project.tasks" group="tasks" :animation="200">
                                 <div v-for="task in project.tasks" :key="task.task_id" class="task">
-                                    <img src="../../assets/imgs/taskboard.jpg" alt="圖片" v-if="task.image" class="img-fluid mb-4">
+                                    <img src="../../assets/imgs/taskboard.jpg" alt="圖片" v-if="task.image"
+                                        class="img-fluid mb-4">
                                     <h4 style="font-size: 14px;" class="fw-bold mb-4">{{ task.title }}</h4>
-                                    <p style="color: rgb(108, 109, 125);font-size: 14px;" class="fw-bold">{{ task.description }}</p>
+                                    <p style="color: rgb(108, 109, 125);font-size: 14px;" class="fw-bold">{{
+                                        task.description }}</p>
                                     <!-- <span>{{ task.date }}</span> -->
                                     <div class="task-footer">
-                                        <span style="color: rgb(108, 109, 125);font-size: 14px;" class="fw-bold">{{ task.date }}</span>
+                                        <span style="color: rgb(108, 109, 125);font-size: 14px;" class="fw-bold">{{
+                                            task.date }}</span>
                                     </div>
                                 </div>
                             </draggable>
                             <div class="task-board-footer d-flex justify-content-center">
                                 <i class="bi bi-plus-circle fw-bold" style="font-size: 14px;"></i>
-                                <span style="color: rgb(108, 109, 125);font-size: 14px;" class="fw-bold ms-2">Add Task</span>
+                                <span style="color: rgb(108, 109, 125);font-size: 14px;" class="fw-bold ms-2">Add
+                                    Task</span>
                             </div>
                         </div>
                     </div>
@@ -103,6 +107,19 @@ watch(project_list, (newValue, oldValue) => {
             }
         }
     }
+}
+
+// 媒體查詢: 當螢幕寬度小於 768px
+@media (max-width: 767.98px) {
+    .task-boards {
+        flex-direction: column;
+
+        .task-board {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+
 
 
 }
