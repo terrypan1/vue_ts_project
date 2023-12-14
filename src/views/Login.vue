@@ -3,7 +3,7 @@ import { swalSuccess } from '../views/Anthentication/useSweetAlert'
 import { useValidation } from '../views/Anthentication/useVuelidate';
 import { useRouter } from "vue-router";
 import { ref, onMounted } from 'vue';
-const isImageLoaded = ref(false);
+const isImageLoaded = ref(false);//定義一個數據屬性 來追蹤圖片是否加載完成
 
 // 使用自定義的鉤子
 const { state, v$ } = useValidation();

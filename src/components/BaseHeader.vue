@@ -21,14 +21,14 @@ import MiniSideBar from './Block/MiniSidebar.vue'
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                                 data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
-                                <img class="rounded-circle" src="../assets/imgs/avatar10.jpg" alt="Header Avatar"
+                                <img class="rounded-circle" src="/assets/media/avatar10.jpg" alt="Header Avatar"
                                     style="width: 21px" />
                                 <span class="d-none d-sm-inline-block ms-2">Terry</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                                 <div class="text-center"
                                     style="background-color: rgb(246, 247, 249);border-bottom: 1px solid #ccc;">
-                                    <img class="rounded-circle" src="../assets/imgs/avatar10.jpg" alt="Header Avatar"
+                                    <img class="rounded-circle" src="/assets/media/avatar10.jpg" alt="Header Avatar"
                                         style="width: 50px" />
                                     <div class="fw-bolder">Terry Pan</div>
                                     <p class="mb-3 fw-bold" style="font-size: 14px;color: rgb(108, 117, 125);">Front-end
