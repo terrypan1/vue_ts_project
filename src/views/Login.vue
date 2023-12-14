@@ -2,6 +2,8 @@
 import { swalSuccess } from '../views/Anthentication/useSweetAlert'
 import { useValidation } from '../views/Anthentication/useVuelidate';
 import { useRouter } from "vue-router";
+import { onMounted, ref } from 'vue';
+const backgroundImageLoaded = ref(false);
 // 使用自定義的鉤子
 const { state, v$ } = useValidation();
 const $router = useRouter()
@@ -15,13 +17,20 @@ async function onSubmit() {
     swalSuccess('登陸成功')
     $router.push("/layout/dashboard")
 }
+onMounted(() => {
+    const img = new Image();
+    img.src = '../assets/imgs/intro-bg.jpg';
+    img.onload = () => {
+        backgroundImageLoaded.value = true;
+    };
+});
 </script>
 <template>
     <div class="container-fuild h-100" style="background-color: white !important;">
         <div class="row g-0 h-100 w-100">
             <div class="col-lg-4 left-container d-none d-lg-block">
-                <div class="left-img">
-                </div>
+                <div :class="{ 'left-img': true, 'loaded': backgroundImageLoaded }"></div>
+
             </div>
             <div class="col-lg-8 h-100">
                 <div class="row g-0">
@@ -76,7 +85,9 @@ async function onSubmit() {
     background-position: top; //有這個才有自適應的感覺
     // clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
-
+.left-img.loaded {
+    background-image: url(../assets/imgs/intro-bg.jpg);
+}
 .left-img::before {
     content: '';
     position: absolute;

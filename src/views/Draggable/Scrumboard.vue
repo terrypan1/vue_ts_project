@@ -61,7 +61,6 @@ watch(project_list, (newValue, oldValue) => {
                                     <h4 style="font-size: 14px;" class="fw-bold mb-4">{{ task.title }}</h4>
                                     <p style="color: rgb(108, 109, 125);font-size: 14px;" class="fw-bold">{{
                                         task.description }}</p>
-                                    <!-- <span>{{ task.date }}</span> -->
                                     <div class="task-footer">
                                         <span style="color: rgb(108, 109, 125);font-size: 14px;" class="fw-bold">{{
                                             task.date }}</span>
@@ -119,9 +118,6 @@ watch(project_list, (newValue, oldValue) => {
             margin-bottom: 10px;
         }
     }
-
-
-
 }
 </style>
   
