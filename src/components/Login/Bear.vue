@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex justify-content-center align-items-center" style="height:100vh">
-        <div class="bear"></div>
+        <div class="bear"></div>Loading...
     </div>
 </template>
 <style lang="scss" scoped>
