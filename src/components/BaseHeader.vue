@@ -31,13 +31,32 @@ import MiniSideBar from './Block/MiniSidebar.vue'
                                     <img class="rounded-circle" src="../assets/imgs/avatar10.jpg" alt="Header Avatar"
                                         style="width: 50px" />
                                     <div class="fw-bolder">Terry Pan</div>
-                                    <p class="mb-3">Front-end engineer</p>
+                                    <p class="mb-3 fw-bold" style="font-size: 14px;color: rgb(108, 117, 125);">Front-end
+                                        engineer</p>
                                 </div>
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li style="border-bottom: 1px #ccc solid;"><a class="dropdown-item" href="#">Something else
-                                        here</a></li>
-                                <li class="mt-1"><RouterLink class="dropdown-item" to="/login">Login out</RouterLink></li>
+                                <li class="p-1"><a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
+                                        <span>Inbox</span>
+                                        <span class="badge rounded-pill"
+                                            style="background-color: rgb(76, 120, 221);">1</span>
+                                    </a>
+                                </li>
+                                <li class="p-1"><a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
+                                        <span>Profile</span>
+                                        <span class="badge rounded-pill"
+                                            style="background-color: rgb(76, 120, 221);">3</span>
+                                    </a>
+                                </li>
+                                <li class="p-1">
+                                        <a class="dropdown-item d-flex justify-content-between align-items-center" href="#">
+                                            <span>Settings</span>
+                                            <span class="badge rounded-pill"
+                                                style="background-color: rgb(76, 120, 221);">3</span>
+                                        </a>
+                                </li>
+                                <div class="border-bottom"></div>
+                                <li class="mt-1 p-1">
+                                    <RouterLink class="dropdown-item" to="/login">Login out</RouterLink>
+                                </li>
                             </ul>
                         </div>
                     </li>
@@ -48,9 +67,9 @@ import MiniSideBar from './Block/MiniSidebar.vue'
                                 <i class="bi bi-bell"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">NOTIFICATIONS</a></li>
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
                             </ul>
                         </div>
                     </li>
@@ -68,6 +87,13 @@ import MiniSideBar from './Block/MiniSidebar.vue'
 .dropdown-menu {
     li a:hover {
         background-color: rgb(234, 237, 241);
+    }
+
+    a {
+        color: rgb(108, 117, 125);
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 4px;
     }
 }
 
@@ -120,5 +146,4 @@ import MiniSideBar from './Block/MiniSidebar.vue'
             box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
         }
     }
-}
-</style>
+}</style>
