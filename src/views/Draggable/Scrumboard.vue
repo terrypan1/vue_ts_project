@@ -110,7 +110,7 @@ watch(project_list, (newValue, oldValue) => {
 }
 
 // 媒體查詢: 當螢幕寬度小於 768px
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
     .task-boards {
         flex-direction: column;
 
