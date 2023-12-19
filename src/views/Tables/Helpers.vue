@@ -2,6 +2,52 @@
 import { helpers } from './useHeadering';//使用BaseHeadering
 import { card } from './useBaseBlock';//BaseBlock
 import DataSet from '../../components/Tables/DataSet.vue'
+import { exportToExcel } from './useExcel'
+import { ref } from 'vue';
+import * as XLSX from 'xlsx';
+
+const selectedFile = ref<File | null>(null);
+const excelData = ref<any[]>([]);
+const triggerFileInput = () => {
+    const fileInput = document.getElementById('fileInput') as HTMLInputElement;
+    fileInput.click();
+};
+const handleFileUpload = (event: Event) => {
+    const input = event.target as HTMLInputElement;
+    if (input.files) {
+        selectedFile.value = input.files[0];
+        readExcelFile(input.files[0]);
+    }
+};
+const readExcelFile = (file: File) => {
+  const reader = new FileReader();
+  reader.onload = (e: any) => {
+    const data = new Uint8Array(e.target.result);
+    const workbook = XLSX.read(data, { type: 'array' });
+    const sheetName = workbook.SheetNames[0];
+    const worksheet = workbook.Sheets[sheetName];
+    excelData.value = XLSX.utils.sheet_to_json(worksheet);
+    console.log(excelData.value);
+  };
+  reader.readAsArrayBuffer(file);
+};
+const uploadFile = async () => {
+    if (!selectedFile.value) {
+        alert("請先選擇一個檔案");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', selectedFile.value);
+
+    try {
+        // 這裡用於向後端 API 發送請求
+        // 例如： await axios.post('your-api-endpoint', formData);
+        console.log('檔案上傳成功');
+    } catch (error) {
+        console.error('檔案上傳失敗', error);
+    }
+};
 </script>
 <template>
     <BaseHeadering :header=helpers></BaseHeadering>
@@ -9,9 +55,11 @@ import DataSet from '../../components/Tables/DataSet.vue'
         <div class="m-lg-5">
             <div class="d-flex justify-content-end">
                 <div class="excel-file">
-                    <button type="button" class="btn btn-primary mb-4 me-2">選擇Excel檔案</button>
-                    <button type="button" class="btn btn-primary mb-4 me-2">上傳Excel檔案</button>
-                    <button type="button" class="btn btn-primary mb-4">下載Excel範例</button>
+                    <input type="file" id="fileInput" style="display: none" @change="handleFileUpload"
+                        accept=".xlsx, .xls" />
+                    <button type="button" class="btn btn-primary mb-4 me-2" @click="triggerFileInput">選擇Excel檔案</button>
+                    <button type="button" class="btn btn-primary mb-4 me-2" @click="uploadFile">上傳Excel檔案</button>
+                    <button type="button" class="btn btn-primary mb-4" @click="exportToExcel">下載Excel範例</button>
                 </div>
             </div>
             <BaseBlock :show="card.show">
@@ -121,6 +169,7 @@ $pagination-transition: color .15s ease-in-out, background-color .15s ease-in-ou
 .excel-file {
     button {
         color: white;
+
         &:focus {
             box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
         }

@@ -136,3 +136,8 @@ npm install simplebar-vue --save
 ```
 npm install vue-draggable-next
 ```
+
+### xlsx
+```
+npm install xlsx
+```
