@@ -1,4 +1,4 @@
-import type { ITodoItem } from '@/types/data';
+import type { ITodoItem,ITodoResponse } from '@/types/data';
 import request from '../../http/requests';
 import { defineStore } from 'pinia';
 
@@ -13,8 +13,9 @@ const mainStore = defineStore('main', {
          * 獲取數據
          */
         async getTodos() {
-            const { data } = await request.get<ITodoItem[]>('/')
-            this.list = data
+            const { data } = await request.get<ITodoResponse>('/')
+            this.list = data.info
+            console.log(this.list)
         },
         /**
          * 刪除數據
@@ -32,7 +33,7 @@ const mainStore = defineStore('main', {
          * @param value 更新值
          */
         async updateTodo(id: number, key: string, value: string | boolean) {
-            await request.patch(`/${id}`, {
+            await request.patch(`/${id}/`, {
                 [key]: value
             })
             this.getTodos()
@@ -64,7 +65,10 @@ const mainStore = defineStore('main', {
     },
     getters: {
         mainRadioStatus(): boolean {
-            return this.list.every((item) => item.done)
+            return this.list.every((item) => {
+                console.log(item);
+                return item.done
+            })
         }
     }
 })

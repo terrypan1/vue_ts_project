@@ -7,6 +7,13 @@ import DataSet from '../../components/Tables/DataSet.vue'
     <BaseHeadering :header=helpers></BaseHeadering>
     <div class="container mt-xl-5 mt-3 w-100">
         <div class="m-lg-5">
+            <div class="d-flex justify-content-end">
+                <div class="excel-file">
+                    <button type="button" class="btn btn-primary mb-4 me-2">選擇Excel檔案</button>
+                    <button type="button" class="btn btn-primary mb-4 me-2">上傳Excel檔案</button>
+                    <button type="button" class="btn btn-primary mb-4">下載Excel範例</button>
+                </div>
+            </div>
             <BaseBlock :show="card.show">
                 <template #header>
                     <div class="card-header border-0 fw-bolder"
@@ -109,4 +116,14 @@ $pagination-transition: color .15s ease-in-out, background-color .15s ease-in-ou
 
 // $pagination-border-radius-sm: $border-radius-sm;
 // $pagination-border-radius-lg: $border-radius-lg;
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss';</style>
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+.excel-file {
+    button {
+        color: white;
+        &:focus {
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+    }
+}
+</style>

@@ -3,6 +3,9 @@ export interface ITodoItem {
     name: string
     done: boolean
 }
+export interface ITodoResponse {
+    info: ITodoItem[];
+}
 //login
 export interface IVuelidate {
     username: null | string,
