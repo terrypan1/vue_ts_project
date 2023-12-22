@@ -13,49 +13,57 @@ const menuLable = ref<INavMenu[]>([
         ]
     },
     {
-        lable: 'Todos',
+        lable: 'Apps',
         target: '#menu2',
         target2: 'menu2',
+        sub: [
+            { title: 'chat', path: '/layout/chat' },
+        ]
+    },
+    {
+        lable: 'Todos',
+        target: '#menu3',
+        target2: 'menu3',
         sub: [
             { title: 'todos', path: '/layout/todo' },
         ]
     },
     {
         lable: 'Canvas',
-        target: '#menu3',
-        target2: 'menu3',
+        target: '#menu4',
+        target2: 'menu4',
         sub: [
             { title: 'cnavas', path: '/layout/canvasDemo' },
         ]
     },
     {
         lable: 'Forms',
-        target: '#menu4',
-        target2: 'menu4',
+        target: '#menu5',
+        target2: 'menu5',
         sub: [
             { title: 'flastPicker', path: '/layout/flastPickerDemo' },
         ]
     },
     {
         lable: 'Draggable',
-        target: '#menu5',
-        target2: 'menu5',
+        target: '#menu6',
+        target2: 'menu6',
         sub: [
             { title: 'Scrumboard', path: '/layout/scrumboard' },
         ]
     },
     {
         lable: 'Anthentication',
-        target: '#menu6',
-        target2: 'menu6',
+        target: '#menu7',
+        target2: 'menu7',
         sub: [
             { title: 'Login', path: '/layout/login' },
         ]
     },
     {
         lable: 'Tables',
-        target: '#menu7',
-        target2: 'menu7',
+        target: '#menu8',
+        target2: 'menu8',
         sub: [
             { title: 'helpers', path: '/layout/helpers' },
         ]
