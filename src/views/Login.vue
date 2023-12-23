@@ -54,8 +54,8 @@ onMounted(async () => {
                     <div class="row g-0">
                         <div class="d-flex flex-column align-items-center justify-content-center" style="height: 100vh;">
                             <div class="d-flex flex-column align-items-center right-container">
-                                <h1 class="fw-bold">Sign In</h1>
-                                <p class="fw-medium text-muted fw-bold">
+                                <h1 class="fw-bold moveInLeft">Sign In</h1>
+                                <p class="fw-medium text-muted fw-bold moveInRight">
                                     Welcome,Please log in or
                                     <a href="">
                                         create a new account
@@ -158,6 +158,40 @@ onMounted(async () => {
 
     &:focus {
         box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+}
+.moveInLeft {
+    animation-name: moveInLeft;
+    animation-duration: 3s;
+}
+.moveInRight {
+    animation-name: moveInRight;
+    animation-duration: 3s;
+}
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translate(-100px);
+    }
+    80% {
+        transform: translate(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translate(100px);
+    }
+    80% {
+        transform: translate(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
     }
 }
 </style>
