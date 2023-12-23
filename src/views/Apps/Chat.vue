@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { helpers } from './useHeadering';//使用BaseHeadering
 import { card } from './useBaseBlock';//BaseBlock
-import { reactive } from 'vue'
+import { reactive,ref } from 'vue'
 import Simplebar from 'simplebar-vue';
 import 'simplebar-vue/dist/simplebar.min.css';
 
@@ -69,6 +69,17 @@ let content = reactive<Icontent[]>([
         messages: []
     }
 ])
+
+interface Message {
+  text: string;
+  isMine: boolean;
+}
+const messages = ref<Message[]>([
+  { text: 'Hello, how are you?', isMine: false },
+  { text: 'I am fine, thanks!', isMine: true },
+  { text: 'I am John', isMine: true },
+  // 更多消息...
+]);
 </script>
 <template>
     <BaseHeadering :header=helpers></BaseHeadering>
@@ -130,12 +141,25 @@ let content = reactive<Icontent[]>([
                                     </div>
                                 </div>
                                 <div class="chat-box">
-                                    <div class="d-flex justify-content-center align-items-center h-100">
+                                    <div class="d-flex justify-content-center align-items-center h-100" v-if="false">
                                         <div style="background-color: rgb(191, 201, 212);border-radius: 4px;width: 250px;height: 40px;line-height: 40px;"
                                             class="d-flex flex-row justify-content-center">
                                             <i class="bi bi-chat-left me-2 fw-bold"
                                                 style="font-size: 20px;color: rgb(136, 142, 168);"></i>
                                             <p>Click User To Chat</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center pt-4">
+                                        <span
+                                            style="background-color: white;width:140px;font-size: 12px;border-radius: 10px;color: rgb(73, 112, 240);"
+                                            class="p-2 text-center fw-bold">Today, 6:48 AM</span>
+                                    </div>
+                                    <div v-for="(message, index) in messages" :key="index" class="message-row">
+                                        <div class="d-flex"
+                                            :class="{ 'justify-content-end': message.isMine, 'justify-content-start': !message.isMine }">
+                                            <span :class="['message', message.isMine ? 'my-message' : 'other-message']">
+                                                {{ message.text }}
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -224,18 +248,20 @@ let content = reactive<Icontent[]>([
     height: 390px;
     background-image: url('/assets/imgs/bg.png');
 }
+
 .chat-message {
     position: relative;
     border-style: dashed;
     border-radius: 4px;
     height: 40px;
-    padding-left: 16px; 
+    padding-left: 16px;
     box-sizing: border-box;
 
     .chat-message-icon {
         position: absolute;
         z-index: 2;
-        left: 10px; /* 调整图标位置 */
+        left: 10px;
+        /* 调整图标位置 */
         line-height: 40px;
     }
 
@@ -244,10 +270,10 @@ let content = reactive<Icontent[]>([
         left: 0;
         top: 6px;
         font-size: 14px;
-        width: 100%; 
+        width: 100%;
         border-style: none !important;
-        box-sizing: border-box; 
-        padding-left: 42px; 
+        box-sizing: border-box;
+        padding-left: 42px;
 
         &:focus {
             outline: none;
@@ -255,6 +281,7 @@ let content = reactive<Icontent[]>([
             border-color: transparent;
         }
     }
+
     &:focus-within {
         // 在這裡定義當input獲得焦點時，.search要應用的樣式
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); // 例如添加一個陰影
@@ -263,4 +290,27 @@ let content = reactive<Icontent[]>([
     }
 }
 
+.message-row {
+    width: 100%;
+}
+
+.message {
+    max-width: 60%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 5px 0;
+}
+
+.my-message {
+    background-color: rgb(67, 97, 238); /* 消息的背景色 */
+    color:#fff;
+    margin-right: 30px;
+}
+
+.other-message {
+    background-color: rgb(255, 255, 255);/* 其他人的消息的背景色 */
+    color: rgb(73, 112, 240);
+    margin-left: 30px;
+}
 </style>
