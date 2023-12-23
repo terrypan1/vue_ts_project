@@ -17,7 +17,10 @@ async function onSubmit() {
         return;
     }
     swalSuccess('登陸成功')
-    $router.push("/layout/dashboard")
+    setTimeout(()=>{
+        $router.push("/layout/dashboard")
+    },2000)
+    //$router.push("/layout/dashboard")
 }
 const loadImage = () => {
     return new Promise<void>((resolve) => {
@@ -30,9 +33,9 @@ const loadImage = () => {
 }
 const waitForMinimumTime = () => {
     return new Promise<void>(resolve => {
-        setTimeout(()=>{
+        setTimeout(() => {
             resolve()
-        },3000)
+        }, 3000)
         // setTimeout(resolve, 3000);
     });
 };
@@ -81,7 +84,7 @@ onMounted(async () => {
                                     <div class="d-flex justify-content-between ms-4 me-4">
                                         <a style="text-decoration: none;font-size: 14px;color: rgb(84, 91, 98);"
                                             class="fw-bold">Forgot Password?</a>
-                                        <button type="button" class="btn btn-primary login-btn" @click="onSubmit">
+                                        <button type="button" class="btn btn-primary login-btn btn-animated" @click="onSubmit">
                                             <i class="bi bi-box-arrow-right"></i>
                                             sigh in
                                         </button>
@@ -153,45 +156,138 @@ onMounted(async () => {
     }
 }
 
+// .login-btn {
+//     position: relative;
+//     color: white;
+//     animation-name: moveInBottom;
+//     &:hover {
+//         transform: translateY(-3px);
+//         // box-shadow: 0 10px 20px rgb(0,0,0,.2);
+//     }
+
+//     &:focus {
+//         box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+//     }
+
+//     &:active {
+//         transform: translateY(-1px);
+//         box-shadow: 0 5px 10px rgb(0, 0, 0, .2);
+//     }
+
+//     &::after {
+//         content: "";
+//         display: inline-block;
+//         width: 100%;
+//         height: 100%;
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         z-index: -1;
+//         transition: all .4s;
+//     }
+//     &:hover::after {
+//         transform: scaleX(1.4) scaleY(1.6);
+//         opacity: 0;
+//         background-color: rgb(13, 110, 253);
+//         border-radius: 4px;
+//     }
+// }
 .login-btn {
+    position: relative;
     color: white;
+    animation-name: moveInBottom;
+    transition: transform 0.4s, box-shadow 0.4s; /* 添加過渡效果 */
+
+    &:hover {
+        transform: translateY(-3px);
+    }
 
     &:focus {
         box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
     }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgb(0, 0, 0, .2);
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s; /* 確保伪元素也有過渡效果 */
+        background-color: transparent; /* 初始背景色為透明 */
+        border-radius: 4px;
+    }
+    &:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+        background-color: rgb(13, 110, 253);
+    }
 }
+
 .moveInLeft {
     animation-name: moveInLeft;
     animation-duration: 3s;
 }
+
 .moveInRight {
     animation-name: moveInRight;
     animation-duration: 3s;
+}
+.btn-animated {
+    animation: moveInBottom .5s ease-out 3s;
+    animation-fill-mode: backwards;
 }
 @keyframes moveInLeft {
     0% {
         opacity: 0;
         transform: translate(-100px);
     }
+
     80% {
         transform: translate(20px);
     }
+
     100% {
         opacity: 1;
         transform: translate(0);
     }
 }
+
 @keyframes moveInRight {
     0% {
         opacity: 0;
         transform: translate(100px);
     }
+
     80% {
         transform: translate(-20px);
     }
+
     100% {
         opacity: 1;
         transform: translate(0);
+    }
+}
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    80% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 </style>
