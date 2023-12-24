@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { reactive, ref,onMounted,watch } from 'vue';
 import type { INavMenu } from '../../../src/types/data';
 import Simplebar from 'simplebar-vue';
 import 'simplebar-vue/dist/simplebar.min.css';
+import { useRoute } from 'vue-router'
+const $route = useRoute()
 const menuLable = ref<INavMenu[]>([
     {
         lable: 'Dashboard',
@@ -13,67 +15,86 @@ const menuLable = ref<INavMenu[]>([
         ]
     },
     {
-        lable: 'Todos',
+        lable: 'Apps',
         target: '#menu2',
         target2: 'menu2',
+        sub: [
+            { title: 'chat', path: '/layout/chat' },
+            { title: 'calendar', path: '/layout/calendar' },
+        ]
+    },
+    {
+        lable: 'Todos',
+        target: '#menu3',
+        target2: 'menu3',
         sub: [
             { title: 'todos', path: '/layout/todo' },
         ]
     },
     {
         lable: 'Canvas',
-        target: '#menu3',
-        target2: 'menu3',
+        target: '#menu4',
+        target2: 'menu4',
         sub: [
             { title: 'cnavas', path: '/layout/canvasDemo' },
         ]
     },
     {
         lable: 'Forms',
-        target: '#menu4',
-        target2: 'menu4',
+        target: '#menu5',
+        target2: 'menu5',
         sub: [
             { title: 'flastPicker', path: '/layout/flastPickerDemo' },
         ]
     },
     {
         lable: 'Draggable',
-        target: '#menu5',
-        target2: 'menu5',
+        target: '#menu6',
+        target2: 'menu6',
         sub: [
             { title: 'Scrumboard', path: '/layout/scrumboard' },
         ]
     },
     {
         lable: 'Anthentication',
-        target: '#menu6',
-        target2: 'menu6',
+        target: '#menu7',
+        target2: 'menu7',
         sub: [
             { title: 'Login', path: '/layout/login' },
         ]
     },
     {
         lable: 'Tables',
-        target: '#menu7',
-        target2: 'menu7',
+        target: '#menu8',
+        target2: 'menu8',
         sub: [
             { title: 'helpers', path: '/layout/helpers' },
         ]
     },
 ])
-
-const activeLink = ref<string | null>(null)
-const handleClick = (link: string) => {
-    activeLink.value = link
-    console.log(link, activeLink.value)
+const activeLink = ref<string | null>('/layout/dashboard') // 設置初始值為 Dashboard 的路徑
+const handleClick = (path: string) => {
+    activeLink.value = path
+    console.log(path, activeLink.value)
 }
+onMounted(() => {
+  // 初始時檢查當前路徑，如果非 dashboard，則更新
+  if ($route.path !== '/layout/dashboard') {
+    activeLink.value = $route.path
+  }
+
+  // 監聽路由變化
+  watch(() => $route.path, (newPath:any) => {
+    activeLink.value = newPath
+  })
+})
 </script>
 <template>
     <div class="offcanvas offcanvas-start " tabindex="-1" id="offcanvasLeftHeader"
         aria-labelledby="offcanvasLeftHeaderLabel" style="background-color: rgb(31, 41, 55);">
         <div class="d-flex flex-column w-100" style="background-color:rgb(35, 46, 62);">
             <div class="d-flex align-items-center justify-content-between">
-                <div class="ms-5">
+                <div class="ms-5 mt-1">
                     <a href="/" class="text-decoration-none fw-bolder"
                         style="line-height:1.75rem;color: rgb(203, 211, 218);">
                         <span class="fs-5">Sidebar</span>
@@ -131,10 +152,10 @@ const handleClick = (link: string) => {
                 </div>
             </div>
         </div>
-        <hr>
+        <!-- <hr> -->
         <div class="siderbar-ul h-100 w-100">
             <ul class="list-unstyled ps-0 flex-column m-1 h-100">
-                <Simplebar style=";max-width: 500px;" class="js-sidebar-scroll">
+                <Simplebar style="max-width: 500px;height: 90%;" class="js-sidebar-scroll">
                     <li class="mb-1" v-for="(list, item) in menuLable" :key="item">
                         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                             data-bs-toggle="collapse" :data-bs-target=list.target aria-expanded="false">
@@ -145,7 +166,7 @@ const handleClick = (link: string) => {
                                 <li v-for="(subList, subItem) in list.sub" :key="subItem">
                                     <RouterLink :to=subList.path style="color: rgb(158, 173, 191);"
                                         class="d-inline-flex text-decoration-none rounded"
-                                        :class="{ active: activeLink == list.lable }" @click="handleClick(list.lable)">
+                                        :class="{ active: activeLink === subList.path }" @click="handleClick(subList.path)">
                                         {{ subList.title }}
                                     </RouterLink>
                                 </li>

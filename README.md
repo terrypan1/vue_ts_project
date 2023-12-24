@@ -141,3 +141,12 @@ npm install vue-draggable-next
 ```
 npm install xlsx
 ```
+
+### calendar
+```
+npm install --save @fullcalendar/core @fullcalendar/vue3 @fullcalendar/daygrid
+```
+- 其他套件
+```
+npm install @fullcalendar/timegrid @fullcalendar/interaction @fullcalendar/list
+```

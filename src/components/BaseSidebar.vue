@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
+import { reactive, ref,onMounted,watch } from 'vue';
 import type { INavMenu } from '../../src/types/data';
 import Simplebar from 'simplebar-vue';
 import 'simplebar-vue/dist/simplebar.min.css';
+import { useRoute } from 'vue-router'
+const $route = useRoute()
 const menuLable = ref<INavMenu[]>([
     {
         lable: 'Dashboard',
@@ -18,7 +20,7 @@ const menuLable = ref<INavMenu[]>([
         target2: 'menu2',
         sub: [
             { title: 'chat', path: '/layout/chat' },
-            { title: 'calender', path: '/layout/calender' },
+            { title: 'calendar', path: '/layout/calendar' },
         ]
     },
     {
@@ -70,11 +72,22 @@ const menuLable = ref<INavMenu[]>([
         ]
     },
 ])
-const activeLink = ref<string | null>(null)
-const handleClick = (link: string) => {
-    activeLink.value = link
-    console.log(link, activeLink.value)
+const activeLink = ref<string | null>('/layout/dashboard') // 設置初始值為 Dashboard 的路徑
+const handleClick = (path: string) => {
+    activeLink.value = path
+    console.log(path, activeLink.value)
 }
+onMounted(() => {
+  // 初始時檢查當前路徑，如果非 dashboard，則更新
+  if ($route.path !== '/layout/dashboard') {
+    activeLink.value = $route.path
+  }
+
+  // 監聽路由變化
+  watch(() => $route.path, (newPath:any) => {
+    activeLink.value = newPath
+  })
+})
 </script>
 <template>
     <div id="sidebar">
@@ -130,9 +143,8 @@ const handleClick = (link: string) => {
                     </ul>
                 </div>
             </div>
-            <hr>
             <ul class="list-unstyled ps-0 flex-column m-1" style="background-color: rgb(31, 41, 55);">
-                <Simplebar style="max-height: 85vh;max-width: 230px;" class="js-sidebar-scroll">
+                <Simplebar style="max-height: 90vh;max-width: 230px;" class="js-sidebar-scroll">
                     <li class="mb-1" v-for="(list, item) in menuLable" :key="item">
                         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                             data-bs-toggle="collapse" :data-bs-target=list.target aria-expanded="false">
@@ -143,7 +155,7 @@ const handleClick = (link: string) => {
                                 <li v-for="(subList, subItem) in list.sub" :key="subItem">
                                     <RouterLink :to=subList.path style="color: rgb(158, 173, 191);"
                                         class="d-inline-flex text-decoration-none rounded"
-                                        :class="{ active: activeLink == list.lable }" @click="handleClick(list.lable)">
+                                        :class="{ active: activeLink === subList.path }" @click="handleClick(subList.path)">
                                         {{ subList.title }}
                                     </RouterLink>
                                 </li>
@@ -276,4 +288,5 @@ const handleClick = (link: string) => {
 .simplebar-scrollbar::before {
     background-color: darkgrey;
     /* 滚动条颜色 */
-}</style>
+}
+</style>

@@ -51,9 +51,9 @@ const router = createRouter({
           component: () => import('../views/Apps/Chat.vue'),
         },
         {
-          path: 'calender',
-          name: 'calender',
-          component: () => import('../views/Apps/Calender.vue'),
+          path: 'calendar',
+          name: 'calendar',
+          component: () => import('../views/Apps/Calendar.vue'),
         },
       ],
     },

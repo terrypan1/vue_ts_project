@@ -10,9 +10,9 @@ export const helpers = ref<IBaseHeader>({
 })
 //calender
 export const calenderHelpers = ref<IBaseHeader>({
-    label:'Apps Calender',
+    label:'Apps Calendar',
     desctiption:'Can freely choose calendar functions on the web.',
     title: 'Apps',
-    sub:'Calender',
-    url: '/layout/calender'
+    sub:'Calendar',
+    url: '/layout/calendar'
 })
