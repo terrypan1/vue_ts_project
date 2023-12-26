@@ -66,47 +66,47 @@ const calendarNewEvents = reactive([
   {
     title: "Codename X",
     color: "info",
-    backgroundColor:"rgb(206, 233, 240)"
+    backgroundColor: "rgb(206, 233, 240)"
   },
   {
     title: "Weekend Adventure",
     color: "success",
-    backgroundColor:"rgb(224, 237, 207)"
+    backgroundColor: "rgb(224, 237, 207)"
   },
   {
     title: "Project Mars",
     color: "info",
-    backgroundColor:"rgb(206, 233, 240)"
+    backgroundColor: "rgb(206, 233, 240)"
   },
   {
     title: "Meeting",
     color: "warning",
-    backgroundColor:"rgb(251, 222, 206)"
+    backgroundColor: "rgb(251, 222, 206)"
   },
   {
     title: "Walk the dog",
     color: "success",
-    backgroundColor:"rgb(224, 237, 207)"
+    backgroundColor: "rgb(224, 237, 207)"
   },
   {
     title: "Al schedule",
     color: "info",
-    backgroundColor:"rgb(206, 233, 240)"
+    backgroundColor: "rgb(206, 233, 240)"
   },
   {
     title: "Cinema",
     color: "success",
-    backgroundColor:"rgb(224, 237, 207)"
+    backgroundColor: "rgb(224, 237, 207)"
   },
   {
     title: "Project X",
     color: "danger",
-    backgroundColor:"rgb(248, 212, 212)"
+    backgroundColor: "rgb(248, 212, 212)"
   },
   {
     title: "Skype Meeting",
     color: "warning",
-    backgroundColor:"rgb(251, 222, 206)"
+    backgroundColor: "rgb(251, 222, 206)"
   },
 ]);
 let date = new Date();
@@ -213,7 +213,7 @@ function addNewEvent() {
     calendarNewEvents.unshift({
       title: calendarNewEvent.value,
       color: "info",
-      backgroundColor:"rgb(206, 233, 240)"//新增的
+      backgroundColor: "rgb(206, 233, 240)"//新增的
     });
 
     // Reset and focus the input
@@ -269,15 +269,14 @@ onMounted(() => {
                     </span>
                   </div>
                 </form>
-                <ul id="js-events" style="list-style: none;">
-                  <li v-for="(event, index) in calendarNewEvents" :key="`events-${index}`">
-                    <div class="js-event p-2 fs-sm fw-medium rounded mb-2"
-                      :class="`text-${event.color}`"
-                      :style="{ backgroundColor: event.backgroundColor }">
-                      {{ event.title }}
-                    </div>
-                  </li>
-                </ul>
+                  <ul id="js-events" style="list-style: none;">
+                    <li v-for="(event, index) in calendarNewEvents" :key="`events-${index}`">
+                      <div class="js-event p-2 fs-sm fw-medium rounded mb-2" :class="`text-${event.color}`"
+                        :style="{ backgroundColor: event.backgroundColor }">
+                        {{ event.title }}
+                      </div>
+                    </li>
+                  </ul>
                 <div class="text-center">
                   <p class="fs-sm text-muted">
                     <i class="bi bi-arrows-move"></i> Drag and drop events on the calendar
@@ -316,11 +315,18 @@ onMounted(() => {
     }
   }
 }
+#js-events li {
+  &:hover {
+    cursor: move;
+    transform: translateX(-2px);
+  }
+}
+
 @media (max-width:1354px) {
   .fc .fc-toolbar.fc-header-toolbar {
     display: flex;
     flex-direction: column;
-    
+
   }
 }
 </style>
