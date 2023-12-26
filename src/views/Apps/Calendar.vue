@@ -317,4 +317,11 @@ onMounted(() => {
     }
   }
 }
+@media (max-width:1354px) {
+  .fc .fc-toolbar.fc-header-toolbar {
+    display: flex;
+    flex-direction: column;
+    
+  }
+}
 </style>
