@@ -55,6 +55,11 @@ const router = createRouter({
           name: 'calendar',
           component: () => import('../views/Apps/Calendar.vue'),
         },
+        {
+          path: 'priceCalculator',
+          name: 'priceCalculator',
+          component: () => import('../views/Apps/PriceCalculator.vue'),
+        },
       ],
     },
     {

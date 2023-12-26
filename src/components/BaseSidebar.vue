@@ -21,6 +21,7 @@ const menuLable = ref<INavMenu[]>([
         sub: [
             { title: 'chat', path: '/layout/chat' },
             { title: 'calendar', path: '/layout/calendar' },
+            { title: 'priceCalculator', path: '/layout/priceCalculator' },
         ]
     },
     {

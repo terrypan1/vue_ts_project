@@ -8,3 +8,10 @@ export const card = ref<IShowProps>({
         footer: false
     },
 })
+export const cardPrice = ref<IShowProps>({
+    show: {
+        header: false,
+        content: true,
+        footer: false
+    },
+})
