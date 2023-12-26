@@ -213,7 +213,7 @@ function addNewEvent() {
     calendarNewEvents.unshift({
       title: calendarNewEvent.value,
       color: "info",
-      backgroundColor:"red"//新增的
+      backgroundColor:"rgb(206, 233, 240)"//新增的
     });
 
     // Reset and focus the input
@@ -265,7 +265,7 @@ onMounted(() => {
                     <input type="text" class="form-control" placeholder="Add Event.." v-model="calendarNewEvent"
                       ref="inputAddEvent" />
                     <span class="input-group-text">
-                      <i class="fa fa-fw fa-plus-circle"></i>
+                      <i class="bi bi-plus-circle-fill"></i>
                     </span>
                   </div>
                 </form>
@@ -280,8 +280,7 @@ onMounted(() => {
                 </ul>
                 <div class="text-center">
                   <p class="fs-sm text-muted">
-                    <i class="fa fa-arrows-alt"></i> Drag and drop events on the
-                    calendar
+                    <i class="bi bi-arrows-move"></i> Drag and drop events on the calendar
                   </p>
                 </div>
               </div>
