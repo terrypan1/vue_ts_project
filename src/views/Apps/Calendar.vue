@@ -66,40 +66,125 @@ const calendarNewEvents = reactive([
   {
     title: "Codename X",
     color: "info",
+    backgroundColor:"rgb(206, 233, 240)"
   },
   {
     title: "Weekend Adventure",
     color: "success",
+    backgroundColor:"rgb(224, 237, 207)"
   },
   {
     title: "Project Mars",
     color: "info",
+    backgroundColor:"rgb(206, 233, 240)"
   },
   {
     title: "Meeting",
     color: "warning",
+    backgroundColor:"rgb(251, 222, 206)"
   },
   {
     title: "Walk the dog",
     color: "success",
+    backgroundColor:"rgb(224, 237, 207)"
   },
   {
     title: "Al schedule",
     color: "info",
+    backgroundColor:"rgb(206, 233, 240)"
   },
   {
     title: "Cinema",
     color: "success",
+    backgroundColor:"rgb(224, 237, 207)"
   },
   {
     title: "Project X",
     color: "danger",
+    backgroundColor:"rgb(248, 212, 212)"
   },
   {
     title: "Skype Meeting",
     color: "warning",
+    backgroundColor:"rgb(251, 222, 206)"
   },
 ]);
+let date = new Date();
+
+let y = date.getFullYear();
+let m = date.getMonth();
+let d = date.getDate();
+calendarOptions.events = [
+  {
+    title: "Gaming Day",
+    start: new Date(y, m, 1),
+    allDay: true,
+  },
+  {
+    title: "Skype Meeting",
+    start: new Date(y, m, 3),
+  },
+  {
+    title: "Project X",
+    start: new Date(y, m, 9),
+    end: new Date(y, m, 12),
+    allDay: true,
+    color: "#e04f1a",
+  },
+  {
+    title: "Work",
+    start: new Date(y, m, 17),
+    end: new Date(y, m, 19),
+    allDay: true,
+    color: "#82b54b",
+  },
+  {
+    id: 999,
+    title: "Hiking (repeated)",
+    start: new Date(y, m, d - 1, 15, 0),
+  },
+  {
+    id: 999,
+    title: "Hiking (repeated)",
+    start: new Date(y, m, d + 3, 15, 0),
+  },
+  {
+    title: "Landing Template",
+    start: new Date(y, m, d - 3),
+    end: new Date(y, m, d - 3),
+    allDay: true,
+    color: "#ffb119",
+  },
+  {
+    title: "Lunch",
+    start: new Date(y, m, d + 7, 15, 0),
+    color: "#82b54b",
+  },
+  {
+    title: "Coding",
+    start: new Date(y, m, d, 8, 0),
+    end: new Date(y, m, d, 14, 0),
+  },
+  {
+    title: "Trip",
+    start: new Date(y, m, 25),
+    end: new Date(y, m, 27),
+    allDay: true,
+    color: "#ffb119",
+  },
+  {
+    title: "Reading",
+    start: new Date(y, m, d + 8, 20, 0),
+    end: new Date(y, m, d + 8, 22, 0),
+  },
+  {
+    title: "Follow us on Twitter",
+    start: new Date(y, m, 22),
+    allDay: true,
+    url: "http://twitter.com/pixelcave",
+    color: "#3c90df",
+  },
+];
 // Add new event data to the calendar on date click
 function handleDateClick(arg: DateClickArg) {
   if (confirm("Would you like to add an event to " + arg.dateStr + " ?")) {
@@ -128,6 +213,7 @@ function addNewEvent() {
     calendarNewEvents.unshift({
       title: calendarNewEvent.value,
       color: "info",
+      backgroundColor:"red"//新增的
     });
 
     // Reset and focus the input
@@ -175,7 +261,7 @@ onMounted(() => {
               </div>
               <div class="col-md-4">
                 <form class="push" @submit.prevent="addNewEvent">
-                  <div class="input-group">
+                  <div class="input-group mb-4">
                     <input type="text" class="form-control" placeholder="Add Event.." v-model="calendarNewEvent"
                       ref="inputAddEvent" />
                     <span class="input-group-text">
@@ -183,10 +269,11 @@ onMounted(() => {
                     </span>
                   </div>
                 </form>
-                <ul id="js-events" class="list list-events">
+                <ul id="js-events" style="list-style: none;">
                   <li v-for="(event, index) in calendarNewEvents" :key="`events-${index}`">
-                    <div class="js-event p-2 fs-sm fw-medium rounded"
-                      :class="`bg-${event.color}-light text-${event.color}`">
+                    <div class="js-event p-2 fs-sm fw-medium rounded mb-2"
+                      :class="`text-${event.color}`"
+                      :style="{ backgroundColor: event.backgroundColor }">
                       {{ event.title }}
                     </div>
                   </li>
