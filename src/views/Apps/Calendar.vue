@@ -253,7 +253,6 @@ onMounted(() => {
           </div>
         </template>
         <template #content>
-          <div>施工中...</div>
           <div class="container-fuild">
             <div class="row">
               <div class="col-md-8">
