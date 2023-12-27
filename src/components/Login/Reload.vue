@@ -5,11 +5,6 @@
 </template>
 <style lang="scss" scoped>
 #page-loader {
-  // position: fixed;
-  // top: 0;
-  // right: 0;
-  // bottom: 0;
-  // left: 0;
   background-color: rgb(235, 238, 242); /* 替換 SASS 變量 $white */
   z-index: 9;
   transform: translateY(0);
