@@ -1,0 +1,10 @@
+/* 暗黑模式的 CSS 變數 */
+:root {
+    --bs-dark-bg: #343a40;
+    --bs-dark-color: #f8f9fa;
+}
+
+.dark-mode {
+    background-color: var(--bs-dark-bg);
+    color: var(--bs-dark-color);
+}

@@ -2,9 +2,9 @@
 import { swalSuccess } from './useSweetAlert'
 import { useValidation } from './useVuelidate';
 import { header } from './useHeadering'//使用BaseHeadering
-import Simplebar from 'simplebar-vue';
+import { useDarkModeStore } from '../../stores/DarkModel/darkMode'
 import 'simplebar-vue/dist/simplebar.min.css';
-import { onMounted } from 'vue';
+const darkModeStore = useDarkModeStore();
 // 使用自定義的鉤子
 const { state, v$ } = useValidation();
 async function onSubmit() {
@@ -19,7 +19,7 @@ async function onSubmit() {
 </script>
 <template>
     <BaseHeadering :header=header></BaseHeadering>
-    <div class="container">
+    <div class="container" :class="{ 'dark-mode': darkModeStore.enabled }">
         <div class="d-flex justify-content-center">
             <div class="md-wd mb-5" style="margin-top:50px;width:450px">
                 <div class="card fw-bold" style="border: 0px;">
@@ -61,6 +61,14 @@ async function onSubmit() {
 </template>
   
 <style lang="scss" scoped>
+/* 暗黑模式*/
+.dark-mode {
+    background-color: #343a40;
+    /* 直接定義背景顏色 */
+    color: #f8f9fa;
+    /* 直接定義文字顏色 */
+}
+
 .invalid-feedback {
     color: rgb(220, 38, 38);
 }

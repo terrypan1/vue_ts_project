@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { reactive, ref,onMounted,watch } from 'vue';
+import { computed, ref, onMounted, watch } from 'vue';
 import type { INavMenu } from '../../src/types/data';
 import Simplebar from 'simplebar-vue';
 import 'simplebar-vue/dist/simplebar.min.css';
 import { useRoute } from 'vue-router'
+import { useDarkModeStore } from '../stores/DarkModel/darkMode'
+const darkModeStore = useDarkModeStore();
 const $route = useRoute()
 const menuLable = ref<INavMenu[]>([
     {
@@ -73,21 +75,25 @@ const menuLable = ref<INavMenu[]>([
         ]
     },
 ])
+const modes = ref([
+    { value: false, text: 'Light' },
+    { value: true, text: 'Dark' },
+
+]);
 const activeLink = ref<string | null>('/layout/dashboard') // 設置初始值為 Dashboard 的路徑
 const handleClick = (path: string) => {
     activeLink.value = path
-    console.log(path, activeLink.value)
 }
 onMounted(() => {
-  // 初始時檢查當前路徑，如果非 dashboard，則更新
-  if ($route.path !== '/layout/dashboard') {
-    activeLink.value = $route.path
-  }
+    // 初始時檢查當前路徑，如果非 dashboard，則更新
+    if ($route.path !== '/layout/dashboard') {
+        activeLink.value = $route.path
+    }
 
-  // 監聽路由變化
-  watch(() => $route.path, (newPath:any) => {
-    activeLink.value = newPath
-  })
+    // 監聽路由變化
+    watch(() => $route.path, (newPath: any) => {
+        activeLink.value = newPath
+    })
 })
 </script>
 <template>
@@ -104,19 +110,12 @@ onMounted(() => {
                         <i class="bi bi-moon text-white" style="font-size: 14px;"></i>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                        <li class="ms-5 "><a class="dropdown-li-a" href="#">
-                                <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
-                                Light
-                            </a>
-                        </li>
-                        <li class="ms-5"><a class="dropdown-li-a" href="#">
-                                <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
-                                Dark
-                            </a>
-                        </li>
-                        <li class="ms-5"><a class="dropdown-li-a" href="#">
-                                <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
-                                System
+                        <li v-for="mode in modes" :key="mode.value.toString()" class="ms-5">
+                            <a class="dropdown-li-a" href="#">
+                                <input class="form-check-input" type="radio" :id="'radio-dark-mode-' + mode.value"
+                                    :value="mode.value" name="themeMode" :checked="darkModeStore.enabled === mode.value"
+                                    @change="darkModeStore.setTheme(mode.value)" />
+                                {{ mode.text }}
                             </a>
                         </li>
                     </ul>
@@ -125,20 +124,13 @@ onMounted(() => {
                     <button class="btn" type="button" id="dropdownMenuOffset" data-bs-toggle="dropdown"
                         aria-expanded="false" aria-haspopup="true" data-bs-offset="-100,0" style="width: 40px;">
                         <i class="bi bi-brush text-white"></i> </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                        <li class="ms-5 "><a class="dropdown-li-a" href="#">
-                                <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
-                                Light
-                            </a>
-                        </li>
-                        <li class="ms-5"><a class="dropdown-li-a" href="#">
-                                <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
-                                Dark
-                            </a>
-                        </li>
-                        <li class="ms-5"><a class="dropdown-li-a" href="#">
-                                <input class="form-check-input" type="radio" id="radio-dark-mode-off" value="light" />
-                                System
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                        <li v-for="mode in modes" :key="mode.value.toString()" class="ms-5">
+                            <a class="dropdown-li-a" href="#">
+                                <input class="form-check-input" type="radio" :id="'radio-dark-mode-' + mode.value"
+                                    :value="mode.value" name="themeMode" :checked="darkModeStore.enabled === mode.value"
+                                    @change="darkModeStore.setTheme(mode.value)" />
+                                {{ mode.text }}
                             </a>
                         </li>
                     </ul>
