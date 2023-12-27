@@ -1,24 +1,21 @@
 <template>
-    <div id=""></div>
+    <div class="w-100 d-flex justify-content-center align-items-center" style="height: 90vh;">
+      <div id="page-loader"></div>
+    </div>
 </template>
 <style lang="scss" scoped>
 #page-loader {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: white; /* 替換 SASS 變量 $white */
-  z-index: 999998;
+  // position: fixed;
+  // top: 0;
+  // right: 0;
+  // bottom: 0;
+  // left: 0;
+  background-color: rgb(235, 238, 242); /* 替換 SASS 變量 $white */
+  z-index: 9;
   transform: translateY(0);
 
   &::after {
-    position: absolute;
-    top: 50%;
-    left: 50%;
     display: block;
-    margin-top: -30px;
-    margin-left: -30px;
     width: 60px;
     height: 60px;
     border-radius: 100%;
