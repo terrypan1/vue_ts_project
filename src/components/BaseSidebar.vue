@@ -37,7 +37,7 @@ const menuLable = ref<INavMenu[]>([
         target: '#menu4',
         target2: 'menu4',
         sub: [
-            { title: 'cnavas', path: '/layout/canvasDemo' },
+            { title: 'canvas', path: '/layout/canvasDemo' },
         ]
     },
     {
