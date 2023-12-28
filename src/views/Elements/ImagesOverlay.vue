@@ -5,7 +5,7 @@ import { card } from './useBaseBlock';//BaseBlock
 </script>
 <template>
     <BaseHeadering :header=helpers></BaseHeadering>
-    <div class="container mt-xl-5 mt-3 w-100">
+    <div class="container mt-xl-5 mt-3 w-100 mb-4">
         <div class="d-flex justify-content-center">
             <BaseBlock :show="card.show" style="width: 80%;">
                 <template #header>
@@ -14,7 +14,7 @@ import { card } from './useBaseBlock';//BaseBlock
                     </div>
                 </template>
                 <template #content>
-                    <div class="container">
+                    <div class="container mb-4">
                         <div class="row">
                             <div class="col-md-4">
                                 <label
@@ -79,13 +79,81 @@ import { card } from './useBaseBlock';//BaseBlock
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label
+                                    style="text-transform: uppercase; font-weight: bold; font-size: 14px; letter-spacing: 1px;">
+                                    Overlay Slide Left
+                                </label>
+                                <div class="image-container">
+                                    <img src="/assets/imgs/overlay2.png" alt="Image"
+                                        class="img-fluid image-item image-zoom">
+                                    <div class="overlay-slide-in-left">
+                                        <div
+                                            class="options-overlay-content d-flex justify-content-center align-items-center h-100 flex-column">
+                                            <h3 class="h4 text-white mb-2">Image Caption</h3>
+                                            <div>
+                                                <a class="me-2 btn btn-sm"><i class="bi bi-pencil p-1"
+                                                        style="color: rgb(76, 120, 221);"></i>Edit</a>
+                                                <a class="btn btn-sm"><i class="bi bi-x-lg p-1"
+                                                        style="color: red;font-weight: bold;"></i>Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label
+                                    style="text-transform: uppercase; font-weight: bold; font-size: 14px; letter-spacing: 1px;">
+                                    Overlay Slide Right
+                                </label>
+                                <div class="image-container">
+                                    <img src="/assets/imgs/overlay2.png" alt="Image"
+                                        class="img-fluid image-item image-zoom">
+                                    <div class="overlay-slide-in-right">
+                                        <div
+                                            class="options-overlay-content d-flex justify-content-center align-items-center h-100 flex-column">
+                                            <h3 class="h4 text-white mb-2">Image Caption</h3>
+                                            <div>
+                                                <a class="me-2 btn btn-sm"><i class="bi bi-pencil p-1"
+                                                        style="color: rgb(76, 120, 221);"></i>Edit</a>
+                                                <a class="btn btn-sm"><i class="bi bi-x-lg p-1"
+                                                        style="color: red;font-weight: bold;"></i>Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label
+                                    style="text-transform: uppercase; font-weight: bold; font-size: 14px; letter-spacing: 1px;">
+                                    Overlay SLIDE DOWN
+                                </label>
+                                <div class="image-container">
+                                    <img src="/assets/imgs/overlay2.png" alt="Image"
+                                        class="img-fluid image-item image-zoom">
+                                    <div class="overlay-slide-in-down">
+                                        <div
+                                            class="options-overlay-content d-flex justify-content-center align-items-center h-100 flex-column">
+                                            <h3 class="h4 text-white mb-2">Image Caption</h3>
+                                            <div>
+                                                <a class="me-2 btn btn-sm"><i class="bi bi-pencil p-1"
+                                                        style="color: rgb(76, 120, 221);"></i>Edit</a>
+                                                <a class="btn btn-sm"><i class="bi bi-x-lg p-1"
+                                                        style="color: red;font-weight: bold;"></i>Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </template>
             </BaseBlock>
         </div>
     </div>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 .options-container {
     position: relative;
     display: block;
@@ -109,9 +177,11 @@ import { card } from './useBaseBlock';//BaseBlock
     .img-zoomIn {
         transition: transform 0.5s ease;
     }
+
     .img-rotateRight {
         transition: transform 0.5s ease;
     }
+
     .options-item {
         transition: all 0.5s;
     }
@@ -125,7 +195,6 @@ import { card } from './useBaseBlock';//BaseBlock
         background-color: rgb(0, 0, 0, 0.75);
         transition: all 0.3s ease-in;
         opacity: 0;
-
         .options-overlay-content {
             a {
                 border: 0;
@@ -143,4 +212,91 @@ import { card } from './useBaseBlock';//BaseBlock
         }
     }
 }
+.image-container {
+    position: relative;
+    display: block;
+    z-index: 1;
+    overflow: hidden;
+
+    &:hover {
+        .overlay-slide-in-down {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .overlay-slide-in-left {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .overlay-slide-in-right {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .image-zoom {
+            transform: scale(1.5);
+        }
+        .image-rotate {
+            transform: scale(1.5) rotate(30deg);
+        }
+    }
+    .options-overlay-content {
+            a {
+                border: 0;
+                background-color: rgb(235, 238, 242);
+                color: black;
+                font-size: 14px;
+                font-weight: bolder;
+                text-decoration: none;
+
+                &:active,
+                &:focus {
+                    box-shadow: 0 0 0 0.25rem rgba(235, 238, 242, 0.5);
+                }
+            }
+        }
+    .image-zoom {
+        transition: transform 0.5s ease;
+    }
+
+    .image-rotate {
+        transition: transform 0.5s ease;
+    }
+
+    .image-item {
+        transition: all 0.5s;
+    }
+
+    .overlay-slide-in-left,
+    .overlay-slide-in-right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgb(0, 0, 0, 0.75);
+        transition: all 0.3s ease-in;
+        opacity: 0;
+    }
+    .overlay-slide-in-down {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgb(0, 0, 0, 0.75);
+        transition: all 0.3s ease-in;
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    .overlay-slide-in-left {
+        transform: translateX(-100%);
+    }
+
+    .overlay-slide-in-right {
+        transform: translateX(100%);
+    }
+    .overlay-slide-in-down {
+        transform: translateY(-100%);
+    }
+}
+
 </style>
