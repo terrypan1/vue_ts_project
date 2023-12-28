@@ -60,6 +60,11 @@ const router = createRouter({
           name: 'priceCalculator',
           component: () => import('../views/Apps/PriceCalculator.vue'),
         },
+        {
+          path: 'imagesOverlay',
+          name: 'imagesOverlay',
+          component: () => import('../views/Elements/ImagesOverlay.vue'),
+        },
       ],
     },
     {

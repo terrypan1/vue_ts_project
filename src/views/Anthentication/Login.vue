@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { swalSuccess } from './useSweetAlert'
 import { useValidation } from './useVuelidate';
 import { header } from './useHeadering'//使用BaseHeadering
@@ -61,6 +62,9 @@ async function onSubmit() {
 </template>
   
 <style lang="scss" scoped>
+$color-loginButton: rgb(11, 94, 215);
+$color-invalid: rgb(248, 212, 212);
+
 /* 暗黑模式*/
 .dark-mode {
     background-color: #343a40;
@@ -76,34 +80,33 @@ async function onSubmit() {
 .form-control-alt {
     background-color: rgb(235, 238, 242);
 
-    & .is-valid {
-        border-color: rgb(248, 212, 212);
+    & .is-valid,
+    is-invalid {
+        border-color: $color-invalid;
 
         &:focus {
-            border-color: rgb(248, 212, 212);
+            border-color: $color-invalid;
             ;
-            background-color: rgb(248, 212, 212) !important;
+            background-color: $color-invalid !important;
             ;
-        }
-    }
-
-    &.is-invalid {
-        border-color: rgb(248, 212, 212);
-        background-color: rgb(248, 212, 212);
-        ;
-
-        &:focus {
-            border-color: rgb(248, 212, 212);
-            background-color: rgb(248, 212, 212);
         }
     }
 }
 
+.btn-primary {
+
+    &:hover {
+        background-color: darken($color-loginButton, 5%);
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+}
 
 @media (max-width: 768px) {
     .md-wd {
         width: 800px !important;
     }
-}
-</style>
+}</style>
   

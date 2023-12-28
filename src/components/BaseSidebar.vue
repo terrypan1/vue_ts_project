@@ -74,12 +74,28 @@ const menuLable = ref<INavMenu[]>([
             { title: 'helpers', path: '/layout/helpers' },
         ]
     },
+    {
+        lable: 'Elements',
+        target: '#menu9',
+        target2: 'menu9',
+        sub: [
+            { title: 'imagesOverlay', path: '/layout/imagesOverlay' },
+        ]
+    },
 ])
+const selectedTheme = ref('Light');
 const modes = ref([
-    { value: false, text: 'Light' },
-    { value: true, text: 'Dark' },
+    { value: false, text: 'Light', id: 1 },
+    { value: true, text: 'Dark', id: 2 },
 
 ]);
+watch(selectedTheme, (newValue) => {
+    if(newValue==='Light'){
+        darkModeStore.enabled = false
+    }else{
+        darkModeStore.enabled = true
+    }
+})
 const activeLink = ref<string | null>('/layout/dashboard') // 設置初始值為 Dashboard 的路徑
 const handleClick = (path: string) => {
     activeLink.value = path
@@ -110,11 +126,9 @@ onMounted(() => {
                         <i class="bi bi-moon text-white" style="font-size: 14px;"></i>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                        <li v-for="mode in modes" :key="mode.value.toString()" class="ms-5">
+                        <li v-for="mode in modes" :key="mode.id" class="ms-5">
                             <a class="dropdown-li-a" href="#">
-                                <input class="form-check-input" type="radio" :id="'radio-dark-mode-' + mode.value"
-                                    :value="mode.value" name="themeMode" :checked="darkModeStore.enabled === mode.value"
-                                    @change="darkModeStore.setTheme(mode.value)" />
+                                <input class="form-check-input" type="radio" :id="'theme-' + mode.text" :value="mode.text" v-model="selectedTheme" />
                                 {{ mode.text }}
                             </a>
                         </li>
@@ -125,11 +139,9 @@ onMounted(() => {
                         aria-expanded="false" aria-haspopup="true" data-bs-offset="-100,0" style="width: 40px;">
                         <i class="bi bi-brush text-white"></i> </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                        <li v-for="mode in modes" :key="mode.value.toString()" class="ms-5">
+                        <li v-for="mode in modes" :key="mode.id" class="ms-5">
                             <a class="dropdown-li-a" href="#">
-                                <input class="form-check-input" type="radio" :id="'radio-dark-mode-' + mode.value"
-                                    :value="mode.value" name="themeMode" :checked="darkModeStore.enabled === mode.value"
-                                    @change="darkModeStore.setTheme(mode.value)" />
+                                <input class="form-check-input" type="radio" :id="'theme-' + mode.text" :value="mode.text" v-model="selectedTheme" />
                                 {{ mode.text }}
                             </a>
                         </li>
