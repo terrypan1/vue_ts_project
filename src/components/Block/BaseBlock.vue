@@ -12,7 +12,7 @@ const prop = defineProps({
         required: true
     },
 })
-console.log(prop);
+// console.log(prop);
 
 </script>
 

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { helpers } from './useHeadering';//使用BaseHeadering
 import { card } from './useBaseBlock';//BaseBlock
-
 </script>
 <template>
     <BaseHeadering :header=helpers></BaseHeadering>
