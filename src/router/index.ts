@@ -65,6 +65,11 @@ const router = createRouter({
           name: 'imagesOverlay',
           component: () => import('../views/Elements/ImagesOverlay.vue'),
         },
+        {
+          path: 'infiniteScroll',
+          name: 'infiniteScroll',
+          component: () => import('../views/Apps/infiniteScroll.vue'),
+        },
       ],
     },
     {

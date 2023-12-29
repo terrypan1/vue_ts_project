@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { helpers } from './useHeadering';//使用BaseHeadering
+import { priceCalculatorHelpers } from './useHeadering';//使用BaseHeadering
 import { card, cardPrice } from './useBaseBlock';//BaseBlock
 import { ref, computed, onMounted } from 'vue'
 import Reload from '../../components/Login/Reload.vue'
@@ -150,7 +150,7 @@ onMounted(() => {
 </script>
 <template>
     <div v-if="isContentLoaded">
-        <BaseHeadering :header=helpers></BaseHeadering>
+        <BaseHeadering :header=priceCalculatorHelpers></BaseHeadering>
         <div class="container mt-xl-5 mt-3 w-100">
             <div class="m-lg-5">
                 <BaseBlock :show="card.show">

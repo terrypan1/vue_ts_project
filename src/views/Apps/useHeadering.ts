@@ -16,3 +16,19 @@ export const calenderHelpers = ref<IBaseHeader>({
     sub:'Calendar',
     url: '/layout/calendar'
 })
+//PriceCalculator
+export const priceCalculatorHelpers = ref<IBaseHeader>({
+    label:'Apps PriceCalculator',
+    desctiption:'Simple calculation tool.',
+    title: 'Apps',
+    sub:'PriceCalculator',
+    url: '/layout/priceCalculator'
+})
+//InfiniteScroll
+export const infiniteScrollHelpers = ref<IBaseHeader>({
+    label:'Apps InfiniteScroll',
+    desctiption:'Simple calculation tool.',
+    title: 'Apps',
+    sub:'InfiniteScroll',
+    url: '/layout/infiniteScroll'
+})
