@@ -21,6 +21,8 @@ const menuLable = ref<INavMenu[]>([
         sub: [
             { title: 'chat', path: '/layout/chat' },
             { title: 'calendar', path: '/layout/calendar' },
+            { title: 'priceCalculator', path: '/layout/priceCalculator' },
+            { title: 'infiniteScroll', path: '/layout/infiniteScroll' },
         ]
     },
     {
@@ -69,6 +71,14 @@ const menuLable = ref<INavMenu[]>([
         target2: 'menu8',
         sub: [
             { title: 'helpers', path: '/layout/helpers' },
+        ]
+    },
+    {
+        lable: 'Elements',
+        target: '#menu9',
+        target2: 'menu9',
+        sub: [
+            { title: 'imagesOverlay', path: '/layout/imagesOverlay' },
         ]
     },
 ])
