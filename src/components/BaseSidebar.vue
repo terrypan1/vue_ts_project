@@ -1,89 +1,12 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, watch } from 'vue';
-import type { INavMenu } from '../../src/types/data';
+import { menuLable } from '../hooks/useBaseSidebar'
 import Simplebar from 'simplebar-vue';
 import 'simplebar-vue/dist/simplebar.min.css';
 import { useRoute } from 'vue-router'
 import { useDarkModeStore } from '../stores/DarkModel/darkMode'
 const darkModeStore = useDarkModeStore();
 const $route = useRoute()
-const menuLable = ref<INavMenu[]>([
-    {
-        lable: 'Dashboard',
-        target: '#menu1',
-        target2: 'menu1',
-        sub: [
-            { title: 'dashboard', path: '/layout/dashboard' },
-        ]
-    },
-    {
-        lable: 'Apps',
-        target: '#menu2',
-        target2: 'menu2',
-        sub: [
-            { title: 'chat', path: '/layout/chat' },
-            { title: 'calendar', path: '/layout/calendar' },
-            { title: 'priceCalculator', path: '/layout/priceCalculator' },
-            { title: 'infiniteScroll', path: '/layout/infiniteScroll' },
-        ]
-    },
-    {
-        lable: 'Todos',
-        target: '#menu3',
-        target2: 'menu3',
-        sub: [
-            { title: 'todos', path: '/layout/todo' },
-        ]
-    },
-    {
-        lable: 'Canvas',
-        target: '#menu4',
-        target2: 'menu4',
-        sub: [
-            { title: 'canvas', path: '/layout/canvasDemo' },
-        ]
-    },
-    {
-        lable: 'Forms',
-        target: '#menu5',
-        target2: 'menu5',
-        sub: [
-            { title: 'flastPicker', path: '/layout/flastPickerDemo' },
-        ]
-    },
-    {
-        lable: 'Draggable',
-        target: '#menu6',
-        target2: 'menu6',
-        sub: [
-            { title: 'Scrumboard', path: '/layout/scrumboard' },
-        ]
-    },
-    {
-        lable: 'Anthentication',
-        target: '#menu7',
-        target2: 'menu7',
-        sub: [
-            { title: 'Login', path: '/layout/login' },
-        ]
-    },
-    {
-        lable: 'Tables',
-        target: '#menu8',
-        target2: 'menu8',
-        sub: [
-            { title: 'helpers', path: '/layout/helpers' },
-        ]
-    },
-    {
-        lable: 'Elements',
-        target: '#menu9',
-        target2: 'menu9',
-        sub: [
-            { title: 'imagesOverlay', path: '/layout/imagesOverlay' },
-        ]
-    },
-])
 const selectedTheme = ref('Light');
 const modes = ref([
     { value: false, text: 'Light', id: 1 },
@@ -91,9 +14,9 @@ const modes = ref([
 
 ]);
 watch(selectedTheme, (newValue) => {
-    if(newValue==='Light'){
+    if (newValue === 'Light') {
         darkModeStore.enabled = false
-    }else{
+    } else {
         darkModeStore.enabled = true
     }
 })
@@ -129,7 +52,8 @@ onMounted(() => {
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
                         <li v-for="mode in modes" :key="mode.id" class="ms-5">
                             <a class="dropdown-li-a" href="#">
-                                <input class="form-check-input" type="radio" :id="'theme-' + mode.text" :value="mode.text" v-model="selectedTheme" />
+                                <input class="form-check-input" type="radio" :id="'theme-' + mode.text" :value="mode.text"
+                                    v-model="selectedTheme" />
                                 {{ mode.text }}
                             </a>
                         </li>
@@ -139,10 +63,11 @@ onMounted(() => {
                     <button class="btn" type="button" id="dropdownMenuOffset" data-bs-toggle="dropdown"
                         aria-expanded="false" aria-haspopup="true" data-bs-offset="-100,0" style="width: 40px;">
                         <i class="bi bi-brush text-white"></i> </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
                         <li v-for="mode in modes" :key="mode.id" class="ms-5">
                             <a class="dropdown-li-a" href="#">
-                                <input class="form-check-input" type="radio" :id="'theme-' + mode.text" :value="mode.text" v-model="selectedTheme" />
+                                <input class="form-check-input" type="radio" :id="'theme-' + mode.text" :value="mode.text"
+                                    v-model="selectedTheme" />
                                 {{ mode.text }}
                             </a>
                         </li>

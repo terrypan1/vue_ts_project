@@ -1,87 +1,10 @@
 <script setup lang="ts">
-import { reactive, ref,onMounted,watch } from 'vue';
-import type { INavMenu } from '../../../src/types/data';
+import { ref,onMounted,watch } from 'vue';
+import { menuLable } from '../../hooks/useBaseSidebar'
 import Simplebar from 'simplebar-vue';
 import 'simplebar-vue/dist/simplebar.min.css';
 import { useRoute } from 'vue-router'
 const $route = useRoute()
-const menuLable = ref<INavMenu[]>([
-    {
-        lable: 'Dashboard',
-        target: '#menu1',
-        target2: 'menu1',
-        sub: [
-            { title: 'dashboard', path: '/layout/dashboard' },
-        ]
-    },
-    {
-        lable: 'Apps',
-        target: '#menu2',
-        target2: 'menu2',
-        sub: [
-            { title: 'chat', path: '/layout/chat' },
-            { title: 'calendar', path: '/layout/calendar' },
-            { title: 'priceCalculator', path: '/layout/priceCalculator' },
-            { title: 'infiniteScroll', path: '/layout/infiniteScroll' },
-        ]
-    },
-    {
-        lable: 'Todos',
-        target: '#menu3',
-        target2: 'menu3',
-        sub: [
-            { title: 'todos', path: '/layout/todo' },
-        ]
-    },
-    {
-        lable: 'Canvas',
-        target: '#menu4',
-        target2: 'menu4',
-        sub: [
-            { title: 'canvas', path: '/layout/canvasDemo' },
-        ]
-    },
-    {
-        lable: 'Forms',
-        target: '#menu5',
-        target2: 'menu5',
-        sub: [
-            { title: 'flastPicker', path: '/layout/flastPickerDemo' },
-        ]
-    },
-    {
-        lable: 'Draggable',
-        target: '#menu6',
-        target2: 'menu6',
-        sub: [
-            { title: 'Scrumboard', path: '/layout/scrumboard' },
-        ]
-    },
-    {
-        lable: 'Anthentication',
-        target: '#menu7',
-        target2: 'menu7',
-        sub: [
-            { title: 'Login', path: '/layout/login' },
-        ]
-    },
-    {
-        lable: 'Tables',
-        target: '#menu8',
-        target2: 'menu8',
-        sub: [
-            { title: 'helpers', path: '/layout/helpers' },
-        ]
-    },
-    {
-        lable: 'Elements',
-        target: '#menu9',
-        target2: 'menu9',
-        sub: [
-            { title: 'imagesOverlay', path: '/layout/imagesOverlay' },
-        ]
-    },
-])
 const activeLink = ref<string | null>('/layout/dashboard') // 設置初始值為 Dashboard 的路徑
 const handleClick = (path: string) => {
     activeLink.value = path

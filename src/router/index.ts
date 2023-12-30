@@ -70,6 +70,11 @@ const router = createRouter({
           name: 'infiniteScroll',
           component: () => import('../views/Apps/infiniteScroll.vue'),
         },
+        {
+          path: 'carousel',
+          name: 'carousel',
+          component: () => import('../views/Elements/Carousel.vue'),
+        },
       ],
     },
     {
