@@ -2,6 +2,7 @@
 import { helpers } from './useHeadering';//使用BaseHeadering
 import { card } from './useBaseBlock';//BaseBlock
 import { ref, onMounted } from 'vue'
+import Reload from '../../components/Login/Reload.vue'
 
 const isImageLoaded = ref(false);//定義一個數據屬性 來追蹤圖片是否加載完成
 const loadImage = (src: string) => {
@@ -24,7 +25,8 @@ onMounted(async () => {
 </script>
 <template>
     <BaseHeadering :header=helpers></BaseHeadering>
-    <div class="container mt-xl-5 mt-3 w-100 mb-4">
+    <div v-if="isImageLoaded">
+        <div class="container mt-xl-5 mt-3 w-100 mb-4">
         <div class="d-flex justify-content-center">
             <BaseBlock :show="card.show" style="width: 80%;">
                 <template #header>
@@ -170,6 +172,10 @@ onMounted(async () => {
                 </template>
             </BaseBlock>
         </div>
+    </div>
+    </div>
+    <div v-else>
+        <Reload></Reload>
     </div>
 </template>
 <style lang="scss" scoped>
