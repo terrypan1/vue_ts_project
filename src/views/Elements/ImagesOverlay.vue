@@ -1,7 +1,26 @@
 <script setup lang="ts">
 import { helpers } from './useHeadering';//使用BaseHeadering
 import { card } from './useBaseBlock';//BaseBlock
+import { ref, onMounted } from 'vue'
 
+const isImageLoaded = ref(false);//定義一個數據屬性 來追蹤圖片是否加載完成
+const loadImage = (src: string) => {
+    return new Promise<void>((resolve) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => {
+            resolve();
+        };
+    });
+}
+onMounted(async () => {
+    // 等待所有圖片加載
+    await Promise.all([
+        loadImage('/assets/imgs/overlay1.png'),
+        loadImage('/assets/imgs/overlay2.png'),
+    ]);
+    isImageLoaded.value = true;
+});
 </script>
 <template>
     <BaseHeadering :header=helpers></BaseHeadering>

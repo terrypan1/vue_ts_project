@@ -145,7 +145,7 @@ onMounted(async () => {
                                         <div class="carousel-caption d-none d-md-block rounded-3 px-3"
                                             style="background-color: rgb(0,0,0,0.5);">
                                             <h5 class="h3 mb-2">Terry Pan</h5>
-                                            <p class="mb-0">Welcome to my profile</p>
+                                            <p class="mb-0">Welcome to my profiles</p>
                                         </div>
                                     </div>
                                 </div>
