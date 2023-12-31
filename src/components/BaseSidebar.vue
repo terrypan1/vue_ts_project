@@ -51,7 +51,7 @@ onMounted(() => {
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
                         <li v-for="mode in modes" :key="mode.id" class="ms-5">
-                            <a class="dropdown-li-a" href="#">
+                            <a class="dropdown-li-a" href="#" >
                                 <input class="form-check-input" type="radio" :id="'theme-' + mode.text" :value="mode.text"
                                     v-model="selectedTheme" />
                                 {{ mode.text }}
@@ -79,7 +79,8 @@ onMounted(() => {
                     <li class="mb-1" v-for="(list, item) in menuLable" :key="item">
                         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                             data-bs-toggle="collapse" :data-bs-target=list.target aria-expanded="false">
-                            {{ list.lable }}
+                            <!-- {{ list.lable }} -->
+                            <span style="font-weight: bold;">{{ list.lable }}</span>
                         </button>
                         <div class="collapse" :id=list.target2>
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -87,7 +88,7 @@ onMounted(() => {
                                     <RouterLink :to=subList.path style="color: rgb(158, 173, 191);"
                                         class="d-inline-flex text-decoration-none rounded"
                                         :class="{ active: activeLink === subList.path }" @click="handleClick(subList.path)">
-                                        {{ subList.title }}
+                                        <span style="font-weight: bold;">{{ subList.title }}</span>
                                     </RouterLink>
                                 </li>
                             </ul>

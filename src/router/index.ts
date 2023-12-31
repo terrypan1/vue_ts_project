@@ -75,6 +75,11 @@ const router = createRouter({
           name: 'carousel',
           component: () => import('../views/Elements/Carousel.vue'),
         },
+        {
+          path: 'pagination',
+          name: 'pagination',
+          component: () => import('../views/Elements/Pagination.vue'),
+        },
       ],
     },
     {

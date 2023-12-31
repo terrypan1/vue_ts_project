@@ -75,6 +75,7 @@ export const menuLable = ref<INavMenu[]>([
         sub: [
             { title: 'imagesOverlay', path: '/layout/imagesOverlay' },
             { title: 'carousel', path: '/layout/carousel' },
+            { title: 'pagination', path: '/layout/pagination' },
         ]
     },
 ])

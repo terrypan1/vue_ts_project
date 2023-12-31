@@ -2,7 +2,7 @@
 import { infiniteScrollHelpers } from './useHeadering';//使用BaseHeadering
 import { card } from './useBaseBlock';//BaseBlock
 import { ref, onMounted } from 'vue'
-import getPhotos from '../../api/gtPhotos'
+import { getPhotos } from '../../api/gtPhotos'
 const page = ref(1)
 const limit = ref(10)
 interface IPhotos {
@@ -89,6 +89,7 @@ onMounted(() => {
 
 .photo-header {
     height: 250px;
+
     img {
         height: 150px;
         width: 150px;

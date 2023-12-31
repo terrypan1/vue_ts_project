@@ -55,7 +55,7 @@ greet('小名', new Date('2023-11-12'))
 
 <template>
     <BaseHeadering :header="helpers"></BaseHeadering>
-    <div class="container mt-xl-5 mt-3 w-100">
+    <div class="container mt-xl-5 mt-3 w-100 mb-4">
         <div class="d-flex justify-content-center">
             <BaseBlock :show="card.show" style="width: 80%;">
                 <!-- 這裡的內容會出現在 BaseBlock 的 <slot></slot> 中 -->

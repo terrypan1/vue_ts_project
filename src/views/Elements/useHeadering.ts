@@ -16,3 +16,10 @@ export const carouselHelpers = ref<IBaseHeader>({
     sub:'Carousel',
     url: '/layout/carousel'
 })
+export const paginationHelpers = ref<IBaseHeader>({
+    label:'Pagination',
+    desctiption:'Documentation and examples for showing pagination to indicate a series of related content exists across multiple pages.',
+    title: 'Elements',
+    sub:'Pagination',
+    url: '/layout/pagination'
+})
