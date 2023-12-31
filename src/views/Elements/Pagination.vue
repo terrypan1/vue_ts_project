@@ -95,7 +95,7 @@ watch(selectedOption, (newPageSize) => {
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4">
-                                <h5 class="mb-4">5000筆資料</h5>
+                                <h5 class="mb-4 fw-bold">5000筆資料</h5>
                                 <select class="form-select mb-4" v-model="selectedOption">
                                     <option v-for="option in options" :key="option.value" :value="option.value">
                                         {{ option.text }}
