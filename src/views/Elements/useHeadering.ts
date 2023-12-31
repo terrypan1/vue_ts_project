@@ -23,3 +23,10 @@ export const paginationHelpers = ref<IBaseHeader>({
     sub:'Pagination',
     url: '/layout/pagination'
 })
+export const wizardHelpers = ref<IBaseHeader>({
+    label:'Wizard',
+    desctiption:'A Wizard, in the context of user interfaces, refers to a component that guides users through a sequence of steps or tasks.',
+    title: 'Elements',
+    sub:'Wizard',
+    url: '/layout/wizard'
+})

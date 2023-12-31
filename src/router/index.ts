@@ -80,6 +80,11 @@ const router = createRouter({
           name: 'pagination',
           component: () => import('../views/Elements/Pagination.vue'),
         },
+        {
+          path: 'wizard',
+          name: 'wizard',
+          component: () => import('../views/Elements/Wizard.vue'),
+        },
       ],
     },
     {
