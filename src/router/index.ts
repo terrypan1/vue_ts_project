@@ -46,6 +46,11 @@ const router = createRouter({
           component: () => import('../views/Tables/Helpers.vue'),
         },
         {
+          path: 'datatable',
+          name: 'datatable',
+          component: () => import('../views/Tables/Vue3-Datatable.vue'),
+        },
+        {
           path: 'chat',
           name: 'chat',
           component: () => import('../views/Apps/Chat.vue'),

@@ -66,6 +66,7 @@ export const menuLable = ref<INavMenu[]>([
         target2: 'menu8',
         sub: [
             { title: 'helpers', path: '/layout/helpers' },
+            { title: 'datatable', path: '/layout/datatable' },
         ]
     },
     {

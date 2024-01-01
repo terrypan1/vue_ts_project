@@ -8,3 +8,11 @@ export const helpers = ref<IBaseHeader>({
     sub:'Helpers',
     url: '/layout/helpers'
 })
+
+export const dataTablehelpers = ref<IBaseHeader>({
+    label:'Vue3-DataTable',
+    desctiption:'Custom functionality to further enrich your tables.',
+    title: 'Tables',
+    sub:'dataTable',
+    url: '/layout/dataTable'
+})

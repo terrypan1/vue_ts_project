@@ -6,8 +6,6 @@ const props = defineProps({
         required: true
     }
 })
-console.log(props.header);
-
 </script>
 <template>
     <div class="continer-fuild" style="background-color: rgb(246, 247, 249);">

@@ -154,3 +154,9 @@ npm install @fullcalendar/timegrid @fullcalendar/interaction @fullcalendar/list
 ### jsonplaceholder
 - https://jsonplaceholder.typicode.com/
 
+### Vue3 Datatable
+- https://vue3-datatable-document.vercel.app/#install
+```
+npm install @bhplugin/vue3-datatable --save
+```
+
