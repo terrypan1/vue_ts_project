@@ -31,13 +31,11 @@ function resetSteps() {
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4">
-                                <div>施工中...</div>
-                                <h5 class="mb-4 fw-bold">Wizard</h5>
+                                <h5 class="mb-4 fw-bold">Custom Wizard</h5>
                             </div>
                             <div class="col-md-8">
                                 <div class="wizard">
                                     <div class="wizard-header">
-                                        <h1>vue-wizard</h1>
                                         <p>Fully customizable wizard component</p>
                                     </div>
                                     <div class="wizard-content">
@@ -50,10 +48,10 @@ function resetSteps() {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="wizard-footer">
-                                    <button @click="prevStep">Previous</button>
-                                    <button @click="nextStep">Next</button>
-                                    <button @click="resetSteps">Reset</button>
+                                <div class="wizard-footer d-flex justify-content-around">
+                                    <button class="btn btn-primary" @click="prevStep">Previous</button>
+                                    <button class="btn btn-primary" @click="nextStep">Next</button>
+                                    <button class="btn btn-primary" @click="resetSteps">Reset</button>
                                 </div>
                             </div>
                         </div>
@@ -64,13 +62,11 @@ function resetSteps() {
     </div>
 </template>
 <style lang="scss" scoped>
+$color-loginButton: rgb(11, 94, 215);
+
 .wizard {
     .wizard-header {
         text-align: center;
-
-        h1 {
-            color: #fff;
-        }
 
         p {
             color: #aaa;
@@ -111,6 +107,7 @@ function resetSteps() {
                 background-color: #3498db;
                 z-index: 0; // 低於圓圈的層級
             }
+
             .step-title {
                 margin-top: 0.5rem;
                 color: #fff;
@@ -129,7 +126,7 @@ function resetSteps() {
 
     .wizard-footer {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
 
         button {
             background-color: #3498db;
@@ -138,9 +135,19 @@ function resetSteps() {
             padding: 0.5rem 1rem;
             margin: 0 0.5rem;
 
-            &:hover {
-                background-color: darken(#3498db, 10%);
-            }
+
         }
     }
-}</style>
+}
+
+.btn-primary {
+
+    &:hover {
+        background-color: darken($color-loginButton, 5%);
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+}
+</style>

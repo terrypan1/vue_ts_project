@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref,onMounted,watch } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { menuLable } from '../../hooks/useBaseSidebar'
 import Simplebar from 'simplebar-vue';
 import 'simplebar-vue/dist/simplebar.min.css';
@@ -11,15 +11,15 @@ const handleClick = (path: string) => {
     console.log(path, activeLink.value)
 }
 onMounted(() => {
-  // 初始時檢查當前路徑，如果非 dashboard，則更新
-  if ($route.path !== '/layout/dashboard') {
-    activeLink.value = $route.path
-  }
+    // 初始時檢查當前路徑，如果非 dashboard，則更新
+    if ($route.path !== '/layout/dashboard') {
+        activeLink.value = $route.path
+    }
 
-  // 監聽路由變化
-  watch(() => $route.path, (newPath:any) => {
-    activeLink.value = newPath
-  })
+    // 監聽路由變化
+    watch(() => $route.path, (newPath: any) => {
+        activeLink.value = newPath
+    })
 })
 </script>
 <template>
@@ -195,13 +195,11 @@ onMounted(() => {
         }
 
         &:focus {
-            background-color: black;
-            outline: 0;
-            /* 移除瀏覽器默認的輪廓 */
             box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
         }
     }
 }
+
 .close-btn {
     button {
         // background-color: rgb(108, 117, 125);
@@ -218,6 +216,7 @@ onMounted(() => {
         }
     }
 }
+
 .dropdown-li-a {
     text-decoration: none;
     color: rgb(57, 71, 90);
@@ -236,5 +235,4 @@ onMounted(() => {
 
 .simplebar-scrollbar::before {
     background-color: darkgrey;
-}
-</style>
+}</style>
