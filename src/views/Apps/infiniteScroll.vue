@@ -10,11 +10,12 @@ interface IPhotos {
     id: number,
     title: string,
     url: string,
-    thumbnailUrl: string
+    thumbnailUrl: string,
+    loaded: boolean // 新增的屬性
 }
 const photosList = ref<IPhotos[]>([]);
-getPhotos(page.value, limit.value).then(result => {
-    photosList.value = result;
+    getPhotos(page.value, limit.value).then(result => {
+    photosList.value = result.map(photo => ({ ...photo, loaded: false }));
     page.value++
 });
 //加載資料
@@ -28,7 +29,8 @@ const load = async () => {
     try {
         console.log(page.value, limit.value);
         const res = await getPhotos(page.value, limit.value)
-        photosList.value.push(...res)
+        const photosWithLoadedFlag = res.map(photo => ({ ...photo, loaded: false }));
+        photosList.value.push(...photosWithLoadedFlag)
         page.value++
         loading = false;
     } catch (err) {
@@ -68,18 +70,25 @@ onMounted(() => {
                     </div>
                 </template>
                 <template #content>
-                    <div class="photos-container" ref="scrollContainer">
-                        <div v-for="photo in photosList" :key="photo.id" class="photo-header">
-                            <h2 style="font-size: 24px;">{{ photo.id + '.' }}{{ photo.title }}</h2>
-                            <img :src="photo.thumbnailUrl">
-                        </div>
-                    </div>
-                </template>
+    <div class="photos-container" ref="scrollContainer">
+        <div v-for="photo in photosList" :key="photo.id" class="photo-header">
+            <h2 style="font-size: 24px;">{{ photo.id + '.' }}{{ photo.title }}</h2>
+            <div style="width: 150px;height: 150px;background-color: #ccc;" v-if="!photo.loaded"></div>
+            <img :src="photo.thumbnailUrl"
+                 :class="{ 'not-loaded': !photo.loaded }"
+                 @load="photo.loaded = true">
+        </div>
+    </div>
+</template>
             </BaseBlock>
         </div>
     </div>
 </template>
 <style lang="scss" scoped>
+.not-loaded {
+    filter: grayscale(100%);
+    opacity: 0.5;
+}
 .photos-container {
     max-height: 500px;
     /* 設定最大高度 */
