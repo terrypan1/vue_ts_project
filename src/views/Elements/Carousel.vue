@@ -27,7 +27,7 @@ onMounted(async () => {
 <template>
     <BaseHeadering :header=carouselHelpers></BaseHeadering>
     <div v-if="isImageLoaded">
-        <div class="container-fuild mt-5 ms-4" style="width: 96%;">
+        <div class="container-fuild mt-5 ms-4" style="width: 93%;">
             <div class="row me-3 ms-md-2">
                 <div class="col-md-6 mb-4">
                     <BaseBlock :show="card.show" class="base-block">

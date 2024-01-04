@@ -42,6 +42,7 @@ export const menuLable = ref<INavMenu[]>([
         target2: 'menu5',
         sub: [
             { title: 'flastPicker', path: '/layout/flastPickerDemo' },
+            { title: 'tabs', path: '/layout/tabs' },
         ]
     },
     {

@@ -31,6 +31,11 @@ const router = createRouter({
           component: () => import('../views/Forms/FlatPickr.vue'),
         },
         {
+          path: 'tabs',
+          name: 'tabs',
+          component: () => import('../views/Forms/Tabs.vue'),
+        },
+        {
           path: 'scrumboard',
           name: 'scrumboard',
           component: () => import('../views/Draggable/Scrumboard.vue'),
