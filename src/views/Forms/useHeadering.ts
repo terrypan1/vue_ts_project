@@ -16,3 +16,11 @@ export const tabsHelpers = ref<IBaseHeader>({
     sub: 'Tabs',
     url: '/layout/tabs'
 })
+
+export const elemantsHelpers = ref<IBaseHeader>({
+    label: 'Form Elements',
+    desctiption: 'Carefully designed elements that will ensure a great experience for your users.',
+    title: 'Froms',
+    sub: 'Elements',
+    url: '/layout/elements'
+})

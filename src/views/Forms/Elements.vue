@@ -1,0 +1,110 @@
+<script setup lang="ts">
+import { elemantsHelpers } from './useHeadering';//使用BaseHeadering
+import { card } from './useBaseBlock';//BaseBlock
+import { ref } from 'vue';
+const selectedOption = ref("select menu"); // 用於綁定選中的選項
+const options = ref([
+    { value: 5, text: '5' },
+    { value: 10, text: '10' },
+    { value: 25, text: '25' },
+    { value: 50, text: '50' },
+    { value: 100, text: '100' }
+])
+
+</script>
+<template>
+    <BaseHeadering :header="elemantsHelpers"></BaseHeadering>
+    <div class="container mt-xl-5 mt-3 w-100 mb-4">
+        <div class="d-flex justify-content-center">
+            <BaseBlock :show="card.show" style="width: 90%;">
+                <template #header>
+                    <div class="card-header border-0 fw-bold">
+                        Basic
+                    </div>
+                </template>
+                <template #content>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <p style="color: rgb(113, 122, 130);">The most often used inputs you know</p>
+                            </div>
+                            <div class="col-lg-8 col-xl-5">
+                                <div class="mb-4">
+                                    <label class="fw-bold mb-2">Text</label>
+                                    <input type="text" placeholder="Text Input" class="form-control form-control-alt">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="fw-bold mb-2">Email</label>
+                                    <input type="text" placeholder="Email Input" class="form-control form-control-alt">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="fw-bold mb-2">Password</label>
+                                    <input type="text" placeholder="Password Input" class="form-control form-control-alt">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="fw-bold mb-2">Textarea</label>
+                                    <textarea class="form-control" id="example-textarea-input" name="example-textarea-input"
+                                        rows="4" placeholder="Textarea content.."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <p style="color: rgb(113, 122, 130);">Select boxes, showcasing both simple and multiple
+                                    selections</p>
+                            </div>
+                            <div class="col-lg-8 col-xl-5">
+                                <div class="mb-4">
+                                    <label class="fw-bold mb-2">Select</label>
+                                    <select class="form-select" id="example-select" name="example-select"
+                                        v-model="selectedOption">
+                                        <option selected>select menu</option>
+                                        <option v-for="option in options" :key="option.value" :value="option.value">
+                                            {{ option.text }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="fw-bold mb-2">Multiple Select</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <p style="color: rgb(113, 122, 130);">
+                                    Checkboxes, radios and switches in various layouts
+                                </p>
+                            </div>
+                            <div class="col-lg-8 col-xl-5">
+                                <div class="mb-4">
+                                    <label class="fw-bold mb-2">Checkboxes</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Option 1
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                            checked>
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            Option 2
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                        disabled>
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            Option 3
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </BaseBlock>
+        </div>
+    </div>
+</template>
+<style lang="scss" scoped></style>

@@ -26,6 +26,11 @@ const router = createRouter({
           component: () => import('../views/CanvasDemo/CanvasDemo.vue'),
         },
         {
+          path: 'elements',
+          name: 'elements',
+          component: () => import('../views/Forms/Elements.vue'),
+        },
+        {
           path: 'flastPickerDemo',
           name: 'flastPickerDemo',
           component: () => import('../views/Forms/FlatPickr.vue'),
