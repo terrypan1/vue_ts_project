@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, reactive } from 'vue';
-import type { Ref } from 'vue';
+import type { Ref,PropType } from 'vue';
 const selectVal = ref('')
 interface ShowProps {
     label: string;
