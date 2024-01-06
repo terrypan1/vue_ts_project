@@ -13,7 +13,7 @@ const singleOptions = ref([
   { value: 100, text: '100' }
 ])
 interface IsingleSelect{
-  lable:string,
+  label:string,
   value:string,
   disabled:boolean
 }
@@ -24,22 +24,22 @@ interface SingleSelectState {
 const singleSelect = reactive<SingleSelectState>({
   options: [
     {
-      lable: "台灣",
+      label: "台灣",
       value: "Taiwan",
       disabled: false,
     },
     {
-      lable: "美國",
+      label: "美國",
       value: "America",
       disabled: true,
     },
     {
-      lable: "日本",
+      label: "日本",
       value: "Japan",
       disabled: false,
     },
     {
-      lable: "俄羅斯",
+      label: "俄羅斯",
       value: "Russia",
       disabled: false,
     },

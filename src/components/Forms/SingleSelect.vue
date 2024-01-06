@@ -42,8 +42,8 @@ onUnmounted(() => {
         <div class="single-positionBox" v-if="postionShow">
             <ul>
                 <li v-for="(option, index) in props.options" :key="index" :class="{ 'item-disables-li': option.disabled }"
-                    @click="handleChange(option.lable)">
-                    {{ option.lable }}
+                    @click="handleChange(option.label)">
+                    {{ option.label }}
                 </li>
             </ul>
         </div>
