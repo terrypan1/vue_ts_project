@@ -71,11 +71,11 @@ const singleSelect = reactive<SingleSelectState>({
                 </div>
                 <div class="mb-4">
                   <label class="fw-bold mb-2">Email</label>
-                  <input type="text" placeholder="Email Input" class="form-control form-control-alt">
+                  <input type="email" placeholder="Email Input" class="form-control form-control-alt">
                 </div>
                 <div class="mb-4">
                   <label class="fw-bold mb-2">Password</label>
-                  <input type="text" placeholder="Password Input" class="form-control form-control-alt">
+                  <input type="password" placeholder="Password Input" class="form-control form-control-alt">
                 </div>
                 <div class="mb-4">
                   <label class="fw-bold mb-2">Textarea</label>
