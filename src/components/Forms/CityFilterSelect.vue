@@ -1,32 +1,10 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, reactive, computed, watch } from 'vue';
 import type { Ref } from 'vue';
+import data from '../../../TwCities.json'
 
 const selectVal = ref('')
-const state = reactive({
-    options: [
-        {
-            label: "台灣",
-            value: "Taiwan",
-            disabled: false,
-        },
-        {
-            label: "美國",
-            value: "America",
-            disabled: false,
-        },
-        {
-            label: "日本",
-            value: "Japan",
-            disabled: false,
-        },
-        {
-            label: "俄羅斯",
-            value: "Russia",
-            disabled: false,
-        },
-    ]
-})
+const city = reactive([...data])
 const postionShow = ref(false);
 // 明確指定 dropdownRef 的類型
 const dropdownRef: Ref<HTMLElement | null> = ref(null);
@@ -42,19 +20,23 @@ const handleChange = (item: string) => {
     selectVal.value = item
     postionShow.value = false;
 }
+const normalizeCityName = (name:string) => {
+    return name.replace(/臺/g, "台");
+};
+
 const filterResult = computed(() => {
     if (selectVal.value) {
-        return state.options.filter(option => option.label.includes(selectVal.value));
+        let normalizedInput = normalizeCityName(selectVal.value);
+        let arr = city.filter(option => normalizeCityName(option.name).includes(normalizedInput));
+        if (arr.length > 0) {
+            return arr[0].districts;
+        }
     }
     return [{
-        label: "請輸入要查詢的值",
-        value: "",
-        disabled: false,
+        name: "請輸入要查詢的縣市",
+        zip: ""
     }];
-})
-// watch(filterResult, (newValue, oldValue) => {
-//     console.log(newValue, oldValue)
-// })
+});
 onMounted(() => {
     window.addEventListener('click', closeDropdown);
 });
@@ -71,15 +53,11 @@ onUnmounted(() => {
                 <input type="text" @click="handleInput" v-model="selectVal" @keydown="handleInput" class="form-select">
                 <div class="filter-positionBox" v-if="postionShow">
                     <ul>
-                        <li v-for="(option, index) in filterResult" :key="index"
-                            :class="{ 'item-disables-li': option.disabled }" @click="handleChange(option.label)">
-                            {{ option.label }}
+                        <li v-for="(option, index) in filterResult" :key="index" @click="handleChange(option.name)">
+                            {{ `${option.zip}  ${option.name}` }}
                         </li>
                     </ul>
                 </div>
-            </div>
-            <div class="mt-4">
-                {{ state.options }}
             </div>
         </div>
     </div>

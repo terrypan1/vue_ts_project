@@ -5,6 +5,7 @@ import { reactive, ref } from 'vue';
 import SingleSelect from '../../components/Forms/SingleSelect.vue'
 import MultipleSelect from '../../components/Forms/MultipleSelect.vue'
 import FilterSelect from '../../components/Forms/FilterSelect.vue'
+import CityFilterSelect from '../../components/Forms/CityFilterSelect.vue'
 const selectedSingleOption = ref("select menu"); // 用於綁定選中的選項
 const singleOptions = ref([
   { value: 5, text: '5' },
@@ -109,6 +110,10 @@ const singleSelect = reactive<SingleSelectState>({
                 <div class="mb-4">
                   <label class="fw-bold mb-2">Customized FilterSelect</label>
                   <FilterSelect ></FilterSelect>
+                </div>
+                <div class="mb-4">
+                  <label class="fw-bold mb-2">Customized CityFilterSelect</label>
+                  <CityFilterSelect ></CityFilterSelect>
                 </div>
               </div>
             </div>
