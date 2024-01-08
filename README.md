@@ -159,4 +159,9 @@ npm install @fullcalendar/timegrid @fullcalendar/interaction @fullcalendar/list
 ```
 npm install @bhplugin/vue3-datatable --save
 ```
+### vue-quill
+```
+npm install @vueup/vue-quill@latest --save
+npm install quill-blot-formatter
+```
 

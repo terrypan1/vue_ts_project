@@ -44,6 +44,7 @@ export const menuLable = ref<INavMenu[]>([
             { title: 'elements', path: '/layout/elements' },
             { title: 'flastPicker', path: '/layout/flastPickerDemo' },
             { title: 'tabs', path: '/layout/tabs' },
+            { title: 'quillEditor', path: '/layout/quill' },
         ]
     },
     {

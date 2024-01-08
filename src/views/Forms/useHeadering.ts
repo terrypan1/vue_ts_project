@@ -24,3 +24,11 @@ export const elemantsHelpers = ref<IBaseHeader>({
     sub: 'Elements',
     url: '/layout/elements'
 })
+
+export const quillHelpers = ref<IBaseHeader>({
+    label: 'Form QuillEditor',
+    desctiption: 'VueQuill is a Component for building rich text editors.',
+    title: 'Froms',
+    sub: 'QuillEditor',
+    url: '/layout/quill'
+})

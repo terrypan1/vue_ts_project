@@ -41,6 +41,11 @@ const router = createRouter({
           component: () => import('../views/Forms/Tabs.vue'),
         },
         {
+          path: 'quill',
+          name: 'quill',
+          component: () => import('../views/Forms/QuillEditor.vue'),
+        },
+        {
           path: 'scrumboard',
           name: 'scrumboard',
           component: () => import('../views/Draggable/Scrumboard.vue'),
